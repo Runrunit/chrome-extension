@@ -124,36 +124,28 @@ class OpenedTasksPage extends React.Component {
       else
         return this.state.tasks.map((task, index) => (
           <li key={index} className="list-group-item">
-            <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank">{task.id} - {task.title}</a>
-            <div className="text-size-sm pb-1">
-              {task.client_name} > {task.project_name} - {task.type_name} <button  type="button" className="btn btn-secondary btn-xs" onClick={this.handleTaskDetailToggle(task.id)}> {
-                (this.state.taskExpanded === task.id) ? (
-                    <span data-glyph="minus" className="oi"></span>
-                ) : (
-                  <span data-glyph="plus" className="oi"></span>
-                )
-              } </button>
-              {(this.state.taskExpanded === task.id) ? (
-                <TaskDetail task={task} />
-              ) : ""}
+            <div onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__area}>
+              <span className={style.RunrunItem__id}>ID {task.id}</span>
+              <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
             </div>
-            <div>
-              <button type="button" className={`btn btn-${(task.current_estimate_seconds != 0 && task.time_worked > task.current_estimate_seconds)?'danger':'info'} btn-sm nohover`}>
-                <span data-glyph="timer" className="oi"></span> {
-                  timer(task.time_worked)
-                } {
-                  (task.current_estimate_seconds) ? 
-                  '/ ' + timer(task.current_estimate_seconds) : ""
-                }
-              </button> {
+            <div className={`area-enabled-${task.is_working_on}`}>
+              {
                 (task.is_working_on) ?
-                (<button type="button" className="btn btn-sm btn-primary" onClick={this.handlePause(task.id)}>
-                <span className="oi" data-glyph="media-pause"></span> PAUSE
-                </button>) :
-                (<button type="button" className="btn btn-sm btn-primary" onClick={this.handlePlay(task.id)}>
-                <span className="oi" data-glyph="media-play"></span> WORK
-                </button>)
-              } <button type="button" className="btn btn-sm btn-light" onClick={this.handleClose(task.id)}>COMPLETE</button>
+                  (<span className={style.RunrunItem__actionBtn} onClick={this.handlePause(task.id)} title="Pausar a tarefa"><img src="/images/pause_blue.svg" /></span>) :
+                  (<span className={style.RunrunItem__actionBtn} onClick={this.handlePlay(task.id)} title="Iniciar a tarefa"><img src="/images/play_blue.svg" /></span>)
+              } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"><img src="/images/chack_white.svg" /></span>
+              <div className={style.RunrunItem__progressDiv}>
+                <span className={style.RunrunItem__progressTime}>
+                  {
+                    timer(task.time_worked)
+                  } {
+                    (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
+                  }
+                </span>
+                <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                <span className={style.RunrunItem__progressBar}></span>
+                <span className={style.RunrunItem__progressFilledBar} style={{ 'width': (task.time_worked / task.current_estimate_seconds * 300) + 'px' }}></span>
+              </div>
     
               {(this.state.autoPauseResume && task.is_working_on)?(
                 <button title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." type="button" className={`btn btn-sm btn-${(this.state.trackedTask == task.id)?'warning':'light'} float-right`} onClick={this.handleTaskTracking(task.id)}>
@@ -161,6 +153,11 @@ class OpenedTasksPage extends React.Component {
                 </button>
               ):""}
     
+            </div>
+            <div>
+              {(this.state.taskExpanded === task.id) ? (
+                <TaskDetail task={task} />
+              ) : ""}
             </div>
           </li>
         ));
