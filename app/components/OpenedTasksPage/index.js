@@ -166,7 +166,7 @@ class OpenedTasksPage extends React.Component {
     return (
       <div>
         <div>
-          <PopupHeader title="Tasks" />
+          <PopupHeader title="Tasks (Pending)" />
           <PopupNav />
         </div>
         <ul className={`list-group ${style.OpenedTasksPage}`}>

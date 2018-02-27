@@ -1,0 +1,26 @@
+.RunrunItemDetail__area {
+  margin-top: 20px;
+  border-top: 2px solid #d6d6d6;
+  width: 390px;
+  padding-top: 20px;
+}
+
+.RunrunItemDetail__flexDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.RunrunItemDetail__flexItem {
+  width: 90px;
+}
+
+.RunrunItemDetail__flexTitle {
+  line-height: 15px;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.style.RunrunItemDetail__flexContent {
+  font-size: 15px;
+}
