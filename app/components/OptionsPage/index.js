@@ -82,7 +82,7 @@ class OptionsPage extends React.Component {
   render() {
     const msg = (this.state.msg) ? (
       <div className={`alert alert-${this.state.msg.type} alert-dismissible fade show`} role="alert">
-        <button type="button" className="close" onClick={this.handleMsgHide}>
+        <button type="button" className="close alert-close" onClick={this.handleMsgHide}>
           <span aria-hidden="true">&times;</span>
         </button>
         {this.state.msg.text}
@@ -112,9 +112,6 @@ class OptionsPage extends React.Component {
               <label className="text-size-md" htmlFor="reminderTimeInMinutes">Reminder's interval</label>
               <p className="text-size-sm">ON/OFF</p>
             </div>
-            {/* <label htmlFor="reminderTimeInMinutes">Reminder's interval ({
-                (this.state.reminderEnabled) ? "Enabled" : "Disabled"
-              })</label> */}
             <div className={style.RunrunSettings__reminderExplanation}>
               <small className="text-muted">
                 * You will be reminded every X minutes whether you are either working on the same task or haven't started one. In case you either pause or start a task, the timer will reset.

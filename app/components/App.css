@@ -52,6 +52,21 @@
   display: none;
 }
 
+/* Alerts */
+:global(.alert-dismissible) {
+  position: relative;
+  margin-bottom: 25px;
+}
+:global(.close.alert-close) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
+  cursor: pointer;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
 /* Switch styling */
 :global(.activatedSwitch) {
   background-color: #5050ff;
@@ -61,4 +76,27 @@
 }
 :global(.disabledSwitch:before) {
   transform: translateX(18px);
+}
+
+/* Cover page styling */
+:global(.cover-page) {
+  background: url('/images/runrunit-extension-home.svg');
+  background-size: 390px;
+  background-repeat: no-repeat;
+  background-position: 50% 3px;
+  height: 580px;
+  width: 405px;
+  position: relative;
+}
+:global(.cover-page-button) {
+  color: #FFF;
+  background-color: #e92121;
+  position: absolute;
+  bottom: 70px;
+  width: 350px;
+  left: 28px;
+}
+:global(.cover-page-button:hover) {
+  color: #FFF;
+  background-color: #ae0202;
 }
