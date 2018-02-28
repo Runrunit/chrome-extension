@@ -65,69 +65,82 @@ class ClosedTasksPage extends React.Component {
     };
   }
 
+  returnTaskProgress(task) {
+    const progress = task.time_worked / task.current_estimate_seconds * 315;
+    const maxProgress = (progress >= 315) ? 315 : progress
+    return maxProgress
+  }
+
   render() {
     const timer = (seconds) => moment.duration(seconds, 'seconds').format('HH:mm', {trim:false});
 
     const tasks = (() => {
       if(!localStorage.getItem("appkey"))
         return (
-          <li className="text-center">
-            Welcome to Runrun.it Task Manager!<br />
-            Click <a href="options.html" target="_blank">here</a> to set up your Runrun.it account.
-          </li>
+          <div className="cover-page">
+            <a className="cover-page-button btn btn-block" href="options.html" target="_blank">Settings Access</a>
+          </div>
         );
       else if(this.state.tasks === undefined)
         return (
-          <li className="text-center"><LoadingIcon visible={true} /></li>
+          <p className="text-center"><LoadingIcon visible={true} /></p>
         );
       else if(this.state.tasks instanceof Array && this.state.tasks.length === 0)
         return (
-          <li className="text-center">
-            You don't have closed tasks at the moment.
-          </li>
+          <p className="text-center">
+            Não tem nenhuma tarefa.
+          </p>
         );
       else
         return this.state.tasks.map((task, index) => (
-          <li key={index} className="list-group-item">
-            <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank">{task.id} - {task.title}</a>
-            <div className="text-size-sm pb-1">
-              {task.client_name} > {task.project_name} - {task.type_name} <button  type="button" className="btn btn-secondary btn-xs" onClick={this.handleTaskDetailToggle(task.id)}> {
-                (this.state.taskExpanded === task.id) ? (
-                    <span data-glyph="minus" className="oi"></span>
-                ) : (
-                  <span data-glyph="plus" className="oi"></span>
-                )
-              } </button>
-              {(this.state.taskExpanded === task.id) ? (
-                <TaskDetail task={task} />
-              ) : ""}
-            </div>
-            <div>
-              <button type="button" className={`btn btn-${(task.current_estimate_seconds != 0 && task.time_worked > task.current_estimate_seconds)?'danger':'info'} btn-sm nohover`}>
-                <span data-glyph="timer" className="oi"></span> {
-                  timer(task.time_worked)
-                } {
-                  (task.current_estimate_seconds) ? 
-                  '/ ' + timer(task.current_estimate_seconds) : ""
-                }
-              </button> <button type="button" className="btn btn-sm btn-primary" onClick={this.handleReopen(task.id)}>REOPEN</button>
-            </div>
-          </li>
+          <ul className={`list-group ${style.OpenedTasksPage}`}>
+            <li key={index} className="list-group-item">
+              <div onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__area}>
+                <span className={style.RunrunItem__id}>ID {task.id}</span>
+                <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
+              </div>
+              <div className={`area-enabled-true`}>
+                <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reiniciar a tarefa"><img src="/images/refresh_blue.svg" /></span>
+                <span className={style.RunrunItem__completeBtn} title="Tarefa completada"><img src="/images/check_blue_filled.svg" /></span>
+                <div className={style.RunrunItem__progressDiv}>
+                  <span className={style.RunrunItem__progressTime}>
+                    {
+                      timer(task.time_worked)
+                    } {
+                      (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
+                    }
+                  </span>
+                  <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                  <span className={style.RunrunItem__progressBar}></span>
+                  <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? 'darkorange' : 'lime' }}></span>
+                </div>
+
+                {(this.state.autoPauseResume && task.is_working_on) ? (
+                  <button title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." type="button" className={`btn btn-sm btn-${(this.state.trackedTask == task.id) ? 'warning' : 'light'} float-right`} onClick={this.handleTaskTracking(task.id)}>
+                    <span className="oi" data-glyph="monitor"></span>
+                  </button>
+                ) : ""}
+
+              </div>
+              <div>
+                {(this.state.taskExpanded === task.id) ? (
+                  <TaskDetail task={task} />
+                ) : ""}
+              </div>
+            </li>
+          </ul>
         ));
     })();
 
     return (
       <div>
         <div>
-          <PopupHeader title="Tasks" />
+          <PopupHeader title="Tasks (Last 10 Deliveries)" />
           <PopupNav />
         </div>
-        <div className="text-center text-secondary text-size-sm">
-          * last ten tasks completed.
-        </div>
-        <ul className={`list-group ${style.ClosedTasksPage}`}>
+        <div className={style.TasksDiv}>
           {tasks}
-        </ul>
+        </div>
       </div>
     );
 

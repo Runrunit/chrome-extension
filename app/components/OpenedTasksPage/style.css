@@ -1,3 +1,7 @@
+.TasksDiv {
+  width: 450px;
+}
+
 .OpenedTasksPage {
   width: 450px;
   padding: 1px 10px;
@@ -16,7 +20,8 @@
 .RunrunItem__name {
   display: block;
   font-size: 17px;
-  margin: 3px 0 7px 0;
+  margin: 8px 0 15px 0;
+  line-height: 18px;
 }
 
 .RunrunItem__actionBtn {
@@ -35,7 +40,7 @@
 
 .RunrunItem__progressDiv {
   display: inline-block;
-  width: 300px;
+  width: 315px;
   height: 25px;
   position: relative;
   float: right;
@@ -59,7 +64,7 @@
 .RunrunItem__progressBar {
   position: absolute;
   bottom: 0;
-  width: 300px;
+  width: 315px;
   height: 3px;
   background: #c9c9c9;
 }
@@ -68,5 +73,4 @@
   position: absolute;
   bottom: 0;
   height: 3px;
-  background: lime;
 }

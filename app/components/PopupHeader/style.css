@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.RunrunHeader__left {
+  width: 270px;
+}
+
 .RunrunHeader__left a {
   float: left;
   margin-right: 10px;
@@ -18,7 +22,7 @@
 
 .RunrunHeader__left_title {
   font-size: 18px!important;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .RunrunHeader__right {
@@ -26,9 +30,9 @@
 }
 
 img.Settings {
-  height: 22px;
+  height: 20px;
   margin-right: 2px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 img.RunrunIcon {

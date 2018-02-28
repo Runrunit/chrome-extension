@@ -100,6 +100,12 @@ class OpenedTasksPage extends React.Component {
     };
   }
 
+  returnTaskProgress(task) {
+    const progress = task.time_worked / task.current_estimate_seconds * 315;
+    const maxProgress = (progress >= 315) ? 315 : progress
+    return maxProgress
+  }
+
   render() {
     const timer = (seconds) => moment.duration(seconds, 'seconds').format('HH:mm', {trim:false});
     
@@ -108,7 +114,6 @@ class OpenedTasksPage extends React.Component {
         return (
           <div className="cover-page">
             <a className="cover-page-button btn btn-block" href="options.html" target="_blank">Settings Access</a>
-            {/* Click <a href="options.html" target="_blank">here</a> to set up your Runrun.it account. */}
           </div>
         );
       else if(this.state.tasks === undefined)
@@ -118,7 +123,7 @@ class OpenedTasksPage extends React.Component {
       else if(this.state.tasks instanceof Array && this.state.tasks.length === 0)
         return (
           <p className="text-center">
-            You have no task at the moment.
+            Não tem nenhuma tarefa.
           </p>
         );
       else
@@ -134,7 +139,7 @@ class OpenedTasksPage extends React.Component {
                   (task.is_working_on) ?
                     (<span className={style.RunrunItem__actionBtn} onClick={this.handlePause(task.id)} title="Pausar a tarefa"><img src="/images/pause_blue.svg" /></span>) :
                     (<span className={style.RunrunItem__actionBtn} onClick={this.handlePlay(task.id)} title="Iniciar a tarefa"><img src="/images/play_blue.svg" /></span>)
-                } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"><img src="/images/chack_white.svg" /></span>
+                } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"><img src="/images/check_blue.svg" /></span>
                 <div className={style.RunrunItem__progressDiv}>
                   <span className={style.RunrunItem__progressTime}>
                     {
@@ -145,7 +150,7 @@ class OpenedTasksPage extends React.Component {
                   </span>
                   <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
                   <span className={style.RunrunItem__progressBar}></span>
-                  <span className={style.RunrunItem__progressFilledBar} style={{ 'width': (task.time_worked / task.current_estimate_seconds * 300) + 'px' }}></span>
+                  <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? 'darkorange' : 'lime' }}></span>
                 </div>
       
                 {(this.state.autoPauseResume && task.is_working_on)?(
@@ -174,7 +179,7 @@ class OpenedTasksPage extends React.Component {
         {/* <ul className={`list-group ${style.OpenedTasksPage}`}>
           {tasks}
         </ul> */}
-        <div>
+        <div className={style.TasksDiv}>
           {tasks}
         </div>
       </div>
