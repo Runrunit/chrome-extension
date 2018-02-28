@@ -106,10 +106,9 @@ class OpenedTasksPage extends React.Component {
     const tasks = (() => {
       if(!localStorage.getItem("appkey"))
         return (
-          <li className="text-center">
-            Welcome to Runrun.it Task Manager!<br />
+          <span>
             Click <a href="options.html" target="_blank">here</a> to set up your Runrun.it account.
-          </li>
+          </span>
         );
       else if(this.state.tasks === undefined)
         return (

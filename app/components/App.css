@@ -47,3 +47,18 @@
 :global(.area-enabled-false) {
   opacity: 0.3;
 }
+
+:global(.display-none) {
+  display: none;
+}
+
+/* Switch styling */
+:global(.activatedSwitch) {
+  background-color: #5050ff;
+}
+:global(.disabledSwitch) {
+  background-color: #b6b6b6;
+}
+:global(.disabledSwitch:before) {
+  transform: translateX(18px);
+}
