@@ -1,0 +1,42 @@
+.RunrunItemDetail__area {
+  margin-top: 20px;
+  border-top: 2px solid #ebebeb;
+  width: 390px;
+  padding-top: 20px;
+}
+
+.RunrunItemDetail__flexDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.RunrunItemDetail__flexItem {
+  width: 90px;
+}
+
+.RunrunItemDetail__flexTitle {
+  line-height: 15px;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.RunrunItemDetail__flexContent {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.RunrunItemDetail__listDiv {
+  margin-top: 20px;
+}
+
+.RunrunItemDetail__listTitle {
+  font-size: 12px;
+  color: #4c4c4c;
+  margin-bottom: 0;
+}
+
+.RunrunItemDetail__listTags {
+  text-transform: capitalize;
+}

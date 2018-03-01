@@ -33,3 +33,70 @@
   line-height: .75;
   border-radius: .2rem;
 }
+
+:global(.list-group-item) {
+  border: none;
+  margin-bottom: 3px;
+}
+
+:global(.app) {
+  background: #f1f1f1;
+  padding-bottom: 9px;
+}
+
+:global(.area-enabled-false) {
+  opacity: 0.3;
+}
+
+:global(.display-none) {
+  display: none;
+}
+
+/* Alerts */
+:global(.alert-dismissible) {
+  position: relative;
+  margin-bottom: 25px;
+}
+:global(.close.alert-close) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
+  cursor: pointer;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+/* Switch styling */
+:global(.activatedSwitch) {
+  background-color: #5050ff;
+}
+:global(.disabledSwitch) {
+  background-color: #b6b6b6;
+}
+:global(.disabledSwitch:before) {
+  transform: translateX(18px);
+}
+
+/* Cover page styling */
+:global(.cover-page) {
+  background: url('/images/home-runrun.png');
+  background-size: 370px;
+  background-repeat: no-repeat;
+  background-position: 50% 8px;
+  height: 585px;
+  width: 380px;
+  position: relative;
+}
+:global(.cover-page-button) {
+  color: #FFF;
+  background-color: #e92121;
+  position: absolute;
+  bottom: 65px;
+  width: 330px;
+  left: 35px;
+}
+:global(.cover-page-button:hover) {
+  color: #FFF;
+  background-color: #ae0202;
+}

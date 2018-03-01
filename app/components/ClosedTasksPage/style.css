@@ -1,3 +1,79 @@
-.ClosedTasksPage {
+.CoverDiv {
+  width: 380px;
+}
+
+.TasksDiv {
   width: 450px;
+}
+
+.OpenedTasksPage {
+  width: 450px;
+  padding: 1px 10px;
+}
+
+.RunrunItem__area {
+  cursor: pointer;
+}
+
+.RunrunItem__id {
+  text-transform: capitalize;
+  display: block;
+  font-size: 14px;
+}
+
+.RunrunItem__name {
+  display: block;
+  font-size: 17px;
+  margin: 8px 0 15px 0;
+  line-height: 18px;
+}
+
+.RunrunItem__actionBtn {
+  cursor: pointer;
+  width: 25px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.RunrunItem__completeBtn {
+  width: 25px;
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.RunrunItem__progressDiv {
+  display: inline-block;
+  width: 315px;
+  height: 25px;
+  position: relative;
+  float: right;
+  margin-top: -3px;
+}
+
+.RunrunItem__progressTime {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 14px;
+}
+
+.RunrunItem__progressLink {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+}
+
+.RunrunItem__progressBar {
+  position: absolute;
+  bottom: 0;
+  width: 315px;
+  height: 3px;
+  background: #c9c9c9;
+}
+
+.RunrunItem__progressFilledBar {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
 }
