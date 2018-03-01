@@ -80,12 +80,12 @@
 
 /* Cover page styling */
 :global(.cover-page) {
-  background: url('/images/runrunit-extension-home.svg');
-  background-size: 390px;
+  background: url('/images/home-runrun.png');
+  background-size: 370px;
   background-repeat: no-repeat;
-  background-position: 50% 3px;
-  height: 580px;
-  width: 400px;
+  background-position: 50% 8px;
+  height: 585px;
+  width: 380px;
   position: relative;
 }
 :global(.cover-page-button) {
