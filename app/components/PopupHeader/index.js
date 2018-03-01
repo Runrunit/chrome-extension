@@ -18,7 +18,7 @@ class PopupHeader extends React.Component {
         <header className={style.RunrunHeader}>
           <div className={style.RunrunHeader__left}>
             <a href="https://secure.runrun.it/en-US/tasks" target="_blank">
-              <img src="images/runrun.png" className={style.RunrunIcon} />
+              <img src="images/rr.svg" className={style.RunrunIcon} />
             </a>
             <span className={style.RunrunHeader__left_title}>{this.props.title}</span>
             <span>NOME DO USUÁRIO</span>
