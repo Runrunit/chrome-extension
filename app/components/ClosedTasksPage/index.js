@@ -111,7 +111,6 @@ class ClosedTasksPage extends React.Component {
                       </span>
                         <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
                         <span className={style.RunrunItem__progressBar}></span>
-                        <span className={style.RunrunItem__progressFilledBar} style={{ 'width': '315px', 'backgroundColor': 'lime' }}></span>
                       </div>
                     ) : (
                       <div className={style.RunrunItem__progressDiv}>
