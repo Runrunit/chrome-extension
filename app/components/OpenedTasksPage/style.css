@@ -8,13 +8,14 @@
 }
 
 .RunrunItem__area {
-  cursor: pointer;
+  position: relative;
 }
 
 .RunrunItem__id {
   text-transform: capitalize;
   display: block;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .RunrunItem__name {
@@ -22,6 +23,23 @@
   font-size: 17px;
   margin: 8px 0 15px 0;
   line-height: 18px;
+  cursor: pointer;
+}
+
+.RunrunItem__autoPause {
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+
+.RunrunItem__autoPause button {
+  line-height: 5px;
+  padding: 5px;
+}
+
+.RunrunItem__autoPause span {
+  font-size: 10px;
+  line-height: 8px;
 }
 
 .RunrunItem__actionBtn {

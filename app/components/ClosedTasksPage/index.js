@@ -101,7 +101,7 @@ class ClosedTasksPage extends React.Component {
               </div>
               <div className={`area-enabled-true`}>
                 <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reiniciar a tarefa"><img src="/images/refresh_blue.svg" /></span>
-                <span className={style.RunrunItem__completeBtn} title="Tarefa completada"><img src="/images/check_blue_filled.svg" /></span>
+                <span className={style.RunrunItem__completeBtn} title="Tarefa completada"><img src="/images/check_green_filled.svg" /></span>
                 <div className={style.RunrunItem__progressDiv}>
                   <span className={style.RunrunItem__progressTime}>
                     {

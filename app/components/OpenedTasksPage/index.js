@@ -130,9 +130,16 @@ class OpenedTasksPage extends React.Component {
         return this.state.tasks.map((task, index) => (
           <ul className={`list-group ${style.OpenedTasksPage}`}>
             <li key={index} className="list-group-item">
-              <div onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__area}>
-                <span className={style.RunrunItem__id}>ID {task.id}</span>
-                <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
+              <div className={style.RunrunItem__area}>
+                <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__id}>ID {task.id}</span>
+                <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
+                <span className={style.RunrunItem__autoPause}>
+                  {(this.state.autoPauseResume && task.is_working_on) ? (
+                    <button title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." type="button" className={`btn btn-sm btn-${(this.state.trackedTask == task.id) ? 'success' : 'light'} float-right`} onClick={this.handleTaskTracking(task.id)}>
+                      <span className="oi" data-glyph="monitor"></span>
+                    </button>
+                  ) : ""}
+                </span>
               </div>
               <div className={`area-enabled-${task.is_working_on}`}>
                 {
@@ -153,11 +160,7 @@ class OpenedTasksPage extends React.Component {
                   <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? 'darkorange' : 'lime' }}></span>
                 </div>
       
-                {(this.state.autoPauseResume && task.is_working_on)?(
-                  <button title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." type="button" className={`btn btn-sm btn-${(this.state.trackedTask == task.id)?'warning':'light'} float-right`} onClick={this.handleTaskTracking(task.id)}>
-                    <span className="oi" data-glyph="monitor"></span>
-                  </button>
-                ):""}
+                
       
               </div>
               <div>
