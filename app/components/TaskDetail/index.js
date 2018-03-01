@@ -13,24 +13,30 @@ class TaskDetail extends React.Component {
     const timer = (seconds) => moment.duration(seconds, 'seconds').format('HH:mm', { trim: false });
     return (
       <div className={style.RunrunItemDetail__area}>
-        <div className={style.RunrunItemDetail__flexDiv}>
-          <div className={style.RunrunItemDetail__flexItem}>
-            <p className={style.RunrunItemDetail__flexTitle}>START<br />DATE</p>
-            <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.start_date).format("DD MMM")}</p>
-          </div>
-          <div className={style.RunrunItemDetail__flexItem}>
-            <p className={style.RunrunItemDetail__flexTitle}>ESTIMATED<br />EFFORT</p>
-            <p className={style.RunrunItemDetail__flexContent}>{timer(this.props.task.current_estimate_seconds)}</p>
-          </div>
-          <div className={style.RunrunItemDetail__flexItem}>
-            <p className={style.RunrunItemDetail__flexTitle}>DELIVERY<br />DATE</p>
-            <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.estimated_delivery_date).format("DD MMM")}</p>
-          </div>
-          <div className={style.RunrunItemDetail__flexItem}>
-            <p className={style.RunrunItemDetail__flexTitle}>DESIRED<br />DUE DATE</p>
-            <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.close_date).format("DD MMM")}</p>
-          </div>
-        </div>
+        {
+          (this.props.task.on_going) ?
+          (
+            <span></span>
+          ) : 
+          (<div className={style.RunrunItemDetail__flexDiv}>
+            <div className={style.RunrunItemDetail__flexItem}>
+              <p className={style.RunrunItemDetail__flexTitle}>START<br />DATE</p>
+              <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.start_date).format("DD MMM")}</p>
+            </div>
+            <div className={style.RunrunItemDetail__flexItem}>
+              <p className={style.RunrunItemDetail__flexTitle}>ESTIMATED<br />EFFORT</p>
+              <p className={style.RunrunItemDetail__flexContent}>{timer(this.props.task.current_estimate_seconds)}</p>
+            </div>
+            <div className={style.RunrunItemDetail__flexItem}>
+              <p className={style.RunrunItemDetail__flexTitle}>DELIVERY<br />DATE</p>
+              <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.estimated_delivery_date).format("DD MMM")}</p>
+            </div>
+            <div className={style.RunrunItemDetail__flexItem}>
+              <p className={style.RunrunItemDetail__flexTitle}>DESIRED<br />DUE DATE</p>
+              <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.close_date).format("DD MMM")}</p>
+            </div>
+          </div>)
+        }
         <div className={style.RunrunItemDetail__listDiv}>
           <p className={style.RunrunItemDetail__listTitle}>TYPE</p>
           <p>{this.props.task.type_name}</p>
