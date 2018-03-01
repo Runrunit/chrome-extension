@@ -144,6 +144,7 @@ class ClosedTasksPage extends React.Component {
           <PopupHeader title="Tasks (Last 10 Deliveries)" />
           <PopupNav />
         </div>
+        {/* <div className={`style.TasksDiv`}> */}
         <div className={style.TasksDiv}>
           {tasks}
         </div>

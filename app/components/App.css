@@ -85,16 +85,16 @@
   background-repeat: no-repeat;
   background-position: 50% 3px;
   height: 580px;
-  width: 405px;
+  width: 400px;
   position: relative;
 }
 :global(.cover-page-button) {
   color: #FFF;
   background-color: #e92121;
   position: absolute;
-  bottom: 70px;
-  width: 350px;
-  left: 28px;
+  bottom: 65px;
+  width: 330px;
+  left: 35px;
 }
 :global(.cover-page-button:hover) {
   color: #FFF;

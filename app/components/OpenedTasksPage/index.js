@@ -192,7 +192,10 @@ class OpenedTasksPage extends React.Component {
         {/* <ul className={`list-group ${style.OpenedTasksPage}`}>
           {tasks}
         </ul> */}
-        <div className={style.TasksDiv}>
+        {/* <div className={style.TasksDiv}>
+          {tasks}
+        </div> */}
+        <div className={(localStorage.getItem("appkey")) ? `${style.TasksDiv}` : `${style.CoverDiv}`}>
           {tasks}
         </div>
       </div>
