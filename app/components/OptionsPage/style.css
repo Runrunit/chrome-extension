@@ -1,0 +1,151 @@
+.RunrunSettings {
+  width: 550px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 70px 50px;
+}
+
+.RunrunSettings__title {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 20px
+}
+
+.RunrunSettings__title p {
+  font-size: 26px;
+  line-height: 15px;
+}
+
+.RunrunSettings__tutorialLink {
+  cursor: pointer;
+}
+
+.RunrunSettings__tutorialLink p {
+  font-size: 12px;
+  width: 50px;
+  line-height: 12px;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.RunrunSettings__tutorialLink img {
+  width: 25px;
+  margin-left: 5px;
+}
+
+.RunrunSettings__offOnTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.RunrunSettings__reminderExplanation {
+  display: flex;
+  align-items: center;
+}
+
+.RunrunSettings__reminderExplanation small {
+  width: 260px;
+  min-width: 260px;
+  margin-right: 30px;
+  font-size: 10px;
+}
+
+.RunrunSettings__reminderExplanation input {
+  width: 90px;
+  min-width: 90px;
+  margin-right: 30px;
+}
+
+.RunrunSettings__autoPauseExplanation {
+  display: flex;
+  align-items: center;
+}
+
+.RunrunSettings__autoPauseExplanation small {
+  width: 379px;
+  min-width: 379px;
+  margin-right: 30px;
+  font-size: 10px;
+}
+
+.RunrunSettings__settingsSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 15px;
+}
+
+.RunrunSettings__settingsSwitch span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: #ccc; */
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  width: 40px;
+  height: 20px;
+}
+
+.RunrunSettings__settingsSwitch span:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.RunrunSettings button {
+  margin-top: 40px;
+  color: #FFF;
+  background-color: #e92121;
+}
+
+/* TUTORIAL */ 
+
+.RunrunTutorial__title {
+  display: flex;
+  cursor: pointer;
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+.RunrunTutorial__title p {
+  font-size: 26px;
+  line-height: 25px;
+  margin-left: 5px;
+}
+
+.RunrunTutorial__title img {
+  width: 25px;
+}
+
+.RunrunTutorial__steps {
+  margin-left: 30px;
+}
+
+.RunrunTutorial__steps > div {
+  margin-bottom: 30px;
+}
+
+.RunrunTutorial__steps p {
+  font-weight: bold;
+  margin-bottom: 5px;
+  line-height: 20px;
+  margin-top: -5px;
+}
+
+.RunrunTutorial__stepTextMuted {
+  margin-top: -5px!important;
+  margin-bottom: 10px!important;
+  line-height: 13px!important;
+}
