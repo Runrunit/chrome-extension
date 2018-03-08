@@ -135,9 +135,13 @@ class OpenedTasksPage extends React.Component {
                 <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
                 <span className={style.RunrunItem__autoPause}>
                   {(this.state.autoPauseResume && task.is_working_on) ? (
-                    <button title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." type="button" className={`btn btn-sm btn-${(this.state.trackedTask == task.id) ? 'success' : 'light'} float-right`} onClick={this.handleTaskTracking(task.id)}>
-                      <span className="oi" data-glyph="monitor"></span>
-                    </button>
+                    <span title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." onClick={this.handleTaskTracking(task.id)}>
+                      {
+                        (this.state.trackedTask == task.id) ?
+                        (<img src="/images/auto_pause_red.svg" />) :
+                        (<img src="/images/auto_pause_gray.svg" />)
+                      }
+                    </span>
                   ) : ""}
                 </span>
               </div>
@@ -187,7 +191,7 @@ class OpenedTasksPage extends React.Component {
       <div>
         <div>
           <PopupHeader title="Tasks (Pending)" />
-          <PopupNav />
+          <PopupNav routeName="opened" />
         </div>
         {/* <ul className={`list-group ${style.OpenedTasksPage}`}>
           {tasks}

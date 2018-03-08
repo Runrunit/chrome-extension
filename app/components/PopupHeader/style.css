@@ -18,19 +18,15 @@
   float: left;
   line-height: 18px;
   font-size: 14px;
+  width: 220px;
 }
 
 .RunrunHeader__left_title {
   font-size: 18px!important;
-  /* width: 50%; */
-}
-
-.RunrunHeader__right {
-  /* float: left; */
 }
 
 img.Settings {
-  height: 20px;
+  height: 18px;
   margin-right: 2px;
   margin-left: 5px;
 }

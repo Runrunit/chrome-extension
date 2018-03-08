@@ -32,18 +32,16 @@
 
 .RunrunItem__autoPause {
   position: absolute;
-  top: 3px;
+  top: 0;
   right: 0;
 }
 
-.RunrunItem__autoPause button {
-  line-height: 5px;
-  padding: 5px;
+.RunrunItem__autoPause span {
+  cursor: pointer;
 }
 
-.RunrunItem__autoPause span {
-  font-size: 10px;
-  line-height: 8px;
+.RunrunItem__autoPause img {
+  width: 24px;
 }
 
 .RunrunItem__actionBtn {

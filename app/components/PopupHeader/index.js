@@ -21,21 +21,9 @@ class PopupHeader extends React.Component {
               <img src="images/rr.svg" className={style.RunrunIcon} />
             </a>
             <span className={style.RunrunHeader__left_title}>{this.props.title}</span>
-            <span>NOME DO USUÁRIO</span>
+            <span>Runrun.it</span>
           </div>
-          <div className={style.RunrunHeader__right}>
-            {
-              (this.props.title === 'Tasks (Last 10 Deliveries)') ?
-              (
-                <Link to="/opened-tasks" className="rounded p-2" activeClassName={style.navActive}>
-                  <img src="/open-iconic/svg/monitor.svg" className={style.Settings} />
-                </Link>
-              ) : (
-                <Link to="/closed-tasks" className="rounded p-2" activeClassName={style.navActive}>
-                  <img src="/open-iconic/svg/folder.svg" className={style.Settings} />
-                </Link>
-              )
-            }            
+          <div className={style.RunrunHeader__right}>      
             <a href="options.html" target="_blank"><img src="/images/kebab.svg" className={style.Settings} /></a>
           </div>
         </header>

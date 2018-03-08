@@ -91,9 +91,9 @@ class OptionsPage extends React.Component {
 
     const form = (
       <div>
-        <div className={style.RunrunSettings__title}>
+        <div className={style.RunrunSettingsPage__title}>
           <p>Settings</p>
-          <span onClick={this.handleViewToggle} className={style.RunrunSettings__tutorialLink}>
+          <span onClick={this.handleViewToggle} className={style.RunrunSettingsPage__tutorialLink}>
             <img className="float-right" src="/images/question_white.svg" />
             <p className="float-right">See the tutorial</p>
           </span>
@@ -108,31 +108,31 @@ class OptionsPage extends React.Component {
             <input type="text" className="form-control" name="usertoken" value={this.state.usertoken} required onChange={this.handleInputChange} />
           </div>
           <div className="form-group">
-            <div className={style.RunrunSettings__offOnTitle}>
+            <div className={style.RunrunSettingsPage__offOnTitle}>
               <label className="text-size-md" htmlFor="reminderTimeInMinutes">Reminder's interval</label>
               <p className="text-size-sm">ON/OFF</p>
             </div>
-            <div className={style.RunrunSettings__reminderExplanation}>
+            <div className={style.RunrunSettingsPage__reminderExplanation}>
               <small className="text-muted">
                 * You will be reminded every X minutes whether you are either working on the same task or haven't started one. In case you either pause or start a task, the timer will reset.
               </small>
               <input type="number" min="1" className="form-control" name="reminderTimeInMinutes" value={this.state.reminderTimeInMinutes} disabled={!this.state.reminderEnabled} required onChange={this.handleInputChange} />
-              <label className={style.RunrunSettings__settingsSwitch}>
+              <label className={style.RunrunSettingsPage__settingsSwitch}>
                 <input className="display-none" type="checkbox" name="reminderEnabled" checked={this.state.reminderEnabled} onChange={this.handleInputChange} />
                 <span className={(this.state.reminderEnabled) ? 'activatedSwitch' : 'disabledSwitch'}></span>
               </label>
             </div>
           </div>
           <div className="form-group">
-            <div className={style.RunrunSettings__offOnTitle}>
+            <div className={style.RunrunSettingsPage__offOnTitle}>
               <label className="text-size-md" htmlFor="reminderTimeInMinutes">Auto Pause/Resume</label>
               <p className="text-size-sm">ON/OFF</p>
             </div>
-            <div className={style.RunrunSettings__autoPauseExplanation}>
+            <div className={style.RunrunSettingsPage__autoPauseExplanation}>
               <small className="text-muted">
                  * By enabling this option, an icon will be displayed to the right of the task you're currently working on, allowing it be automatically paused/resumed when you lock/unlock your computer. However, we've noticed that this feature doesn't work as expected on some computers. If you really wish to use this feature, we strongly suggest you to test it by locking your computer for a few minutes and then checking on your task details to see if the recorded time is correct.
               </small>
-              <label className={style.RunrunSettings__settingsSwitch}>
+              <label className={style.RunrunSettingsPage__settingsSwitch}>
                 <input className="display-none" type="checkbox" name="autoPauseResume" checked={this.state.autoPauseResume} onChange={this.handleInputChange} />
                 <span className={(this.state.autoPauseResume) ? 'activatedSwitch' : 'disabledSwitch'}></span>
               </label>
@@ -145,20 +145,20 @@ class OptionsPage extends React.Component {
 
     const tutorial = (
       <div>
-        <div className={style.RunrunTutorial__title}>
+        <div className={style.RunrunTutorialPage__title}>
           <span onClick={this.handleViewToggle}>
             <img className="float-left" src="/images/nav-circle-left-blue.svg" />
             <p className="float-left">Settings</p>
           </span>
         </div>
-        <div className={style.RunrunTutorial__steps}>
+        <div className={style.RunrunTutorialPage__steps}>
           <div>
             <p>1. Go to your profile on Runrun.it</p>
             <img src="/images/tutorial_01.svg" />
           </div>
           <div>
             <p>2. Then, if there is no "App key", click on "Generate".</p>
-            <p className={style.RunrunTutorial__stepTextMuted}><small className="text-muted">* Permission needed. If it does not appear, contact anyone with "Administrator" role.</small></p>
+            <p className={style.RunrunTutorialPage__stepTextMuted}><small className="text-muted">* Permission needed. If it does not appear, contact anyone with "Administrator" role.</small></p>
             <img src="/images/tutorial_02.svg" />
           </div>
           <div>
@@ -174,7 +174,7 @@ class OptionsPage extends React.Component {
         <div className="content">
           <div className="row justify-content-md-center">
             <div className="col col-md-6">
-              <div className={style.RunrunSettings}>
+              <div className={style.RunrunSettingsPage}>
                 {msg}
                 {(this.state.view === "options") ? form : tutorial}
               </div>

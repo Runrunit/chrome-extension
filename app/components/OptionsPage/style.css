@@ -1,27 +1,27 @@
-.RunrunSettings {
+.RunrunSettingsPage {
   width: 550px;
   margin: 50px auto;
   background: #fff;
   padding: 70px 50px;
 }
 
-.RunrunSettings__title {
+.RunrunSettingsPage__title {
   display: flex;
   justify-content: space-between;
   height: 40px;
   margin-bottom: 20px
 }
 
-.RunrunSettings__title p {
+.RunrunSettingsPage__title p {
   font-size: 26px;
   line-height: 15px;
 }
 
-.RunrunSettings__tutorialLink {
+.RunrunSettingsPage__tutorialLink {
   cursor: pointer;
 }
 
-.RunrunSettings__tutorialLink p {
+.RunrunSettingsPage__tutorialLink p {
   font-size: 12px;
   width: 50px;
   line-height: 12px;
@@ -29,54 +29,58 @@
   text-align: right;
 }
 
-.RunrunSettings__tutorialLink img {
+.RunrunSettingsPage__tutorialLink img {
   width: 25px;
   margin-left: 5px;
 }
 
-.RunrunSettings__offOnTitle {
+.RunrunSettingsPage__offOnTitle {
   display: flex;
   justify-content: space-between;
 }
 
-.RunrunSettings__reminderExplanation {
+.RunrunSettingsPage__offOnTitle p {
+  font-size: 12px;
+}
+
+.RunrunSettingsPage__reminderExplanation {
   display: flex;
   align-items: center;
 }
 
-.RunrunSettings__reminderExplanation small {
+.RunrunSettingsPage__reminderExplanation small {
   width: 260px;
   min-width: 260px;
   margin-right: 30px;
   font-size: 10px;
 }
 
-.RunrunSettings__reminderExplanation input {
+.RunrunSettingsPage__reminderExplanation input {
   width: 90px;
   min-width: 90px;
   margin-right: 30px;
 }
 
-.RunrunSettings__autoPauseExplanation {
+.RunrunSettingsPage__autoPauseExplanation {
   display: flex;
   align-items: center;
 }
 
-.RunrunSettings__autoPauseExplanation small {
+.RunrunSettingsPage__autoPauseExplanation small {
   width: 379px;
   min-width: 379px;
   margin-right: 30px;
   font-size: 10px;
 }
 
-.RunrunSettings__settingsSwitch {
+.RunrunSettingsPage__settingsSwitch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 15px;
 }
 
-.RunrunSettings__settingsSwitch span {
+.RunrunSettingsPage__settingsSwitch span {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -91,7 +95,7 @@
   height: 20px;
 }
 
-.RunrunSettings__settingsSwitch span:before {
+.RunrunSettingsPage__settingsSwitch span:before {
   position: absolute;
   content: "";
   height: 13px;
@@ -104,7 +108,7 @@
   border-radius: 50%;
 }
 
-.RunrunSettings button {
+.RunrunSettingsPage button {
   margin-top: 40px;
   color: #FFF;
   background-color: #e92121;
@@ -112,39 +116,39 @@
 
 /* TUTORIAL */ 
 
-.RunrunTutorial__title {
+.RunrunTutorialPage__title {
   display: flex;
   cursor: pointer;
   width: 140px;
   margin-bottom: 20px;
 }
 
-.RunrunTutorial__title p {
+.RunrunTutorialPage__title p {
   font-size: 26px;
   line-height: 25px;
   margin-left: 5px;
 }
 
-.RunrunTutorial__title img {
+.RunrunTutorialPage__title img {
   width: 25px;
 }
 
-.RunrunTutorial__steps {
+.RunrunTutorialPage__steps {
   margin-left: 30px;
 }
 
-.RunrunTutorial__steps > div {
+.RunrunTutorialPage__steps > div {
   margin-bottom: 30px;
 }
 
-.RunrunTutorial__steps p {
+.RunrunTutorialPage__steps p {
   font-weight: bold;
   margin-bottom: 5px;
   line-height: 20px;
   margin-top: -5px;
 }
 
-.RunrunTutorial__stepTextMuted {
+.RunrunTutorialPage__stepTextMuted {
   margin-top: -5px!important;
   margin-bottom: 10px!important;
   line-height: 13px!important;

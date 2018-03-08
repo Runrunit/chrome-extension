@@ -142,7 +142,7 @@ class ClosedTasksPage extends React.Component {
       <div>
         <div>
           <PopupHeader title="Tasks (Last 10 Deliveries)" />
-          <PopupNav />
+          <PopupNav routeName="closed" />
         </div>
         {/* <div className={`style.TasksDiv`}> */}
         <div className={style.TasksDiv}>
