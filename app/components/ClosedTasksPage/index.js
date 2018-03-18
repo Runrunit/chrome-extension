@@ -1,38 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router';
-import moment from 'moment';
-import 'moment-duration-format';
+import React from 'react'
+import { Link } from 'react-router'
+import moment from 'moment'
+import 'moment-duration-format'
+import _ from 'lodash'
 
-import style from './style.css';
-import request from '../AuthInterceptor';
-import LoadingIcon from '../LoadingIcon';
-import PopupHeader from '../PopupHeader';
-import PopupNav from '../PopupNav';
-import TaskDetail from '../TaskDetail';
+import style from './style.css'
+import request from '../AuthInterceptor'
+import LoadingIcon from '../LoadingIcon'
+import PopupHeader from '../PopupHeader'
+import PopupNav from '../PopupNav'
+import TaskDetail from '../TaskDetail'
 
 class ClosedTasksPage extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     
-    this.state = {
+    this.setState({
       tasks: undefined,
       taskExpanded: undefined
-    };
+    })
     
-    this.handleTaskDetailToggle = this.handleTaskDetailToggle.bind(this);
-    this.handleGetList = this.handleGetList.bind(this);
-    this.handleReopen = this.handleReopen.bind(this);
+    _.bindAll('handleTaskDetailToggle', 'handleGetList', 'handleReopen')
   }
 
   componentDidMount() {
-    this.handleGetList();
+    this.handleGetList()
   }
 
   handleGetList() {
     this.setState({
       tasks: undefined
     }, () => {
-      const user = (localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")) : {};
+      const user = (localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")) : {}
       request.get('https://secure.runrun.it/api/v1.0/tasks', {
         params: {
           responsible_id: user.id,
@@ -43,30 +42,30 @@ class ClosedTasksPage extends React.Component {
       .then(response => {
         this.setState({
           tasks: response.data
-        });
-      });
-    });
+        })
+      })
+    })
   }
 
   handleReopen(id) {
     return () => {
       request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/reopen`)
         .then(response => {
-          this.handleGetList();
-        });
-    };
+          this.handleGetList()
+        })
+    }
   }
 
   handleTaskDetailToggle(id) {
     return () => {
       this.setState({
-        taskExpanded: (this.state.taskExpanded === id) ? undefined : id
-      });
-    };
+        taskExpanded: this.state.taskExpanded === id ? undefined : id
+      })
+    }
   }
 
   render() {
-    const timer = (seconds) => moment.duration(seconds, 'seconds').format('HH:mm', {trim:false});
+    const timer = seconds => moment.duration(seconds, 'seconds').format('HH:mm', { trim:false })
 
     const tasks = (() => {
       if(!localStorage.getItem("appkey"))
@@ -75,17 +74,17 @@ class ClosedTasksPage extends React.Component {
             Welcome to Runrun.it Task Manager!<br />
             Click <a href="options.html" target="_blank">here</a> to set up your Runrun.it account.
           </li>
-        );
+        )
       else if(this.state.tasks === undefined)
         return (
           <li className="text-center"><LoadingIcon visible={true} /></li>
-        );
+        )
       else if(this.state.tasks instanceof Array && this.state.tasks.length === 0)
         return (
           <li className="text-center">
             You don't have closed tasks at the moment.
           </li>
-        );
+        )
       else
         return this.state.tasks.map((task, index) => (
           <li key={index} className="list-group-item">
@@ -113,8 +112,8 @@ class ClosedTasksPage extends React.Component {
               </button> <button type="button" className="btn btn-sm btn-primary" onClick={this.handleReopen(task.id)}>REOPEN</button>
             </div>
           </li>
-        ));
-    })();
+        ))
+    })()
 
     return (
       <div>
@@ -129,9 +128,9 @@ class ClosedTasksPage extends React.Component {
           {tasks}
         </ul>
       </div>
-    );
+    )
 
   }
 }
 
-export default ClosedTasksPage;
+export default ClosedTasksPage
