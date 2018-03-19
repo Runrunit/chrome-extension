@@ -100,7 +100,7 @@ class ClosedTasksPage extends React.Component {
                 <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
               </div>
               <div className={`area-enabled-true`}>
-                <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reiniciar a tarefa"><img src="/images/refresh_blue.svg" /></span>
+                <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reiniciar a tarefa"></span>
                 <span className={style.RunrunItem__completeBtn} title="Tarefa completada"><img src="/images/check_green_filled.svg" /></span>
                 {
                   (task.on_going) ?
@@ -123,7 +123,7 @@ class ClosedTasksPage extends React.Component {
                         </span>
                         <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
                         <span className={style.RunrunItem__progressBar}></span>
-                        <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? 'darkorange' : 'lime' }}></span>
+                        <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }}></span>
                       </div>
                     )
                 }

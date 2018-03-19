@@ -147,7 +147,7 @@ class OptionsPage extends React.Component {
       <div>
         <div className={style.RunrunTutorialPage__title}>
           <span onClick={this.handleViewToggle}>
-            <img className="float-left" src="/images/nav-circle-left-blue.svg" />
+            <span className={`float-left ${style.RunrunTutorialPage__titleIcon}`}></span>
             <p className="float-left">Settings</p>
           </span>
         </div>

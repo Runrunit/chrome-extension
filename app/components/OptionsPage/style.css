@@ -129,8 +129,19 @@
   margin-left: 5px;
 }
 
-.RunrunTutorialPage__title img {
+.RunrunTutorialPage__titleIcon {
+  cursor: pointer;
+  height: 25px;
   width: 25px;
+  background: url('/images/nav-circle-left-blue.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+.RunrunTutorialPage__titleIcon:hover {
+  background: url('/images/nav-circle-left-blue-hover.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
 }
 
 .RunrunTutorialPage__steps {

@@ -1,6 +1,7 @@
 /* Global styles */
 :global(.app) {
-  background: #f1f1f1;
+  background: #F7F8FA;
+  color: #566268;
   padding-bottom: 9px;
 }
 :global(.btn) {
@@ -22,22 +23,32 @@
   border: 1px solid #C5D3DA;
   border-radius: 6px; 
   font-size: 14px;
+  width: 120px;
 }
 :global(.active-nav) {
-  background: #FFF;
-  color: #111;
-}
-:global(.inactive-nav) {
   background: #C5D3DA;
   color: #FFF;
+  font-weight: bold;
+}
+:global(.inactive-nav) {
+  background: #FFF;
+  color: #C5D3DA;
+  font-weight: bold;
 }
 :global(.active-nav:hover) {
-  background: #FFF;
-  color: inherit;
+  background: #C5D3DA;
+  color: #FFF;
+  cursor: default;
 }
 :global(.inactive-nav:hover) {
   background: #E8403C ;
   color: #FFF;
+}
+:global(.active-nav:focus) {
+  box-shadow: none;
+}
+:global(.inactive-nav:focus) {
+  box-shadow: none;
 }
 
 /* Alerts */

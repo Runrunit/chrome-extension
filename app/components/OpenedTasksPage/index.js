@@ -148,9 +148,9 @@ class OpenedTasksPage extends React.Component {
               <div className={`area-enabled-${task.is_working_on}`}>
                 {
                   (task.is_working_on) ?
-                    (<span className={style.RunrunItem__actionBtn} onClick={this.handlePause(task.id)} title="Pausar a tarefa"><img src="/images/pause_blue.svg" /></span>) :
-                    (<span className={style.RunrunItem__actionBtn} onClick={this.handlePlay(task.id)} title="Iniciar a tarefa"><img src="/images/play_blue.svg" /></span>)
-                } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"><img src="/images/check_blue.svg" /></span>
+                    (<span className={style.RunrunItem__actionBtnPause} onClick={this.handlePause(task.id)} title="Pausar a tarefa"></span>) :
+                    (<span className={style.RunrunItem__actionBtnPlay} onClick={this.handlePlay(task.id)} title="Iniciar a tarefa"></span>)
+                } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"></span>
                 {
                   (task.on_going) ? 
                   (
@@ -172,7 +172,7 @@ class OpenedTasksPage extends React.Component {
                       </span>
                       <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
                       <span className={style.RunrunItem__progressBar}></span>
-                      <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? 'darkorange' : 'lime' }}></span>
+                        <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }}></span>
                     </div>
                   )
                 }    

@@ -24,7 +24,7 @@ class PopupHeader extends React.Component {
             <span>Runrun.it</span>
           </div>
           <div className={style.RunrunHeader__right}>      
-            <a href="options.html" target="_blank"><img src="/images/kebab.svg" className={style.Settings} /></a>
+            <a href="options.html" target="_blank"><img src="/images/kebab_gray.svg" className={style.Settings} /></a>
           </div>
         </header>
       );
