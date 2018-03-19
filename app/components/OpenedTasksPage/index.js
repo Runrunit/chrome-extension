@@ -101,8 +101,8 @@ class OpenedTasksPage extends React.Component {
   }
 
   returnTaskProgress(task) {
-    const progress = task.time_worked / task.current_estimate_seconds * 315;
-    const maxProgress = (progress >= 315) ? 315 : progress
+    const progress = task.time_worked / task.current_estimate_seconds * 300;
+    const maxProgress = (progress >= 300) ? 300 : progress
     return maxProgress
   }
 

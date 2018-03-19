@@ -16,27 +16,41 @@
 }
 
 .RunrunItemDetail__flexTitle {
-  line-height: 15px;
-  font-size: 13px;
+  line-height: 13px;
+  font-size: 11px;
   margin-bottom: 5px;
 }
 
 .RunrunItemDetail__flexContent {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .RunrunItemDetail__listDiv {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .RunrunItemDetail__listTitle {
-  font-size: 12px;
+  font-size: 11px;
   color: #4c4c4c;
   margin-bottom: 0;
 }
 
+.RunrunItemDetail__listText {
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: -1px;
+}
+
 .RunrunItemDetail__listTags {
   text-transform: capitalize;
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: -1px;
+}
+
+.RunrunItemDetail__listTags span {
+  text-transform: uppercase;
+  font-size: 11px;
 }

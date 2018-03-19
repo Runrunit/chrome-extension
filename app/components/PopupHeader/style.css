@@ -16,13 +16,14 @@
 
 .RunrunHeader__left span {
   float: left;
-  line-height: 18px;
-  font-size: 14px;
+  line-height: 14px;
+  font-size: 11px;
   width: 220px;
 }
 
 .RunrunHeader__left_title {
-  font-size: 18px!important;
+  font-size: 15px!important;
+  margin-top: 2px;
 }
 
 img.Settings {
@@ -32,5 +33,5 @@ img.Settings {
 }
 
 img.RunrunIcon {
-  width: 35px;
+  width: 30px;
 }

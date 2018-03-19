@@ -39,9 +39,9 @@ class TaskDetail extends React.Component {
         }
         <div className={style.RunrunItemDetail__listDiv}>
           <p className={style.RunrunItemDetail__listTitle}>TYPE</p>
-          <p>{this.props.task.type_name}</p>
+          <p className={style.RunrunItemDetail__listText}>{this.props.task.type_name}</p>
           <p className={style.RunrunItemDetail__listTitle}>CLIENT > PROJECT</p>
-          <p>{this.props.task.client_name} > {this.props.task.project_name}</p>
+          <p className={style.RunrunItemDetail__listText}>{this.props.task.client_name} > {this.props.task.project_name}</p>
           <p className={style.RunrunItemDetail__listTitle}>TAGS</p>
           <p className={style.RunrunItemDetail__listTags}>
             { 

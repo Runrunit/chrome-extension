@@ -111,7 +111,12 @@
 .RunrunSettingsPage button {
   margin-top: 40px;
   color: #FFF;
-  background-color: #e92121;
+  background-color: #E54241;
+}
+
+.RunrunSettingsPage button:hover {
+  color: #FFF;
+  background-color: #D23E3E;
 }
 
 /* TUTORIAL */ 
