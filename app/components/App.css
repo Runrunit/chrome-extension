@@ -3,6 +3,8 @@
   background: #F7F8FA;
   color: #566268;
   padding-bottom: 9px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 :global(.btn) {
   cursor: pointer;
