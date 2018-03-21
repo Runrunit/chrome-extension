@@ -67,7 +67,7 @@ class OptionsPage extends React.Component {
         this.setState({
           msg: {
             type: 'success',
-            text: "Success!"
+            text: 'Mudanças salvas com sucesso'
           }
         });
       });
@@ -94,7 +94,7 @@ class OptionsPage extends React.Component {
         <div className={style.RunrunSettingsPage__title}>
           <p>Settings</p>
           <span onClick={this.handleViewToggle} className={style.RunrunSettingsPage__tutorialLink}>
-            <img className="float-right" src="/images/question_white.svg" />
+            <span className="float-right"></span>
             <p className="float-right">See the tutorial</p>
           </span>
         </div>
@@ -162,7 +162,8 @@ class OptionsPage extends React.Component {
             <img src="/images/tutorial_02.svg" />
           </div>
           <div>
-            <p>3. Your "App Key" and "User Token" will be displayed (or only the "User Token" if you aren't an "Administrator").</p>
+            <p>3. Your "App Key" and "User Token" will be displayed</p>
+            <p className={style.RunrunTutorialPage__stepTextMuted}><small className="text-muted">* If you aren't an Administrator, you will just see the "User Token"</small></p>
             <img src="/images/tutorial_03.svg" />
           </div>
         </div>

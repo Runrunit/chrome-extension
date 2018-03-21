@@ -11,6 +11,21 @@
   padding: 1px 10px;
 }
 
+.OpenedTasksPage li {
+  border-top: 1px solid #C5D3DA;
+  border-left: 1px solid #C5D3DA;
+  border-right: 1px solid #C5D3DA;
+  margin-bottom: -2px;
+  padding: .75rem;
+  position: relative;
+  display: block;
+  background-color: #fff;
+}
+
+.TasksDiv ul:last-child li {
+  border-bottom: 1px solid #C5D3DA;
+}
+
 .RunrunItem__area {
   position: relative;
 }
@@ -18,15 +33,16 @@
 .RunrunItem__id {
   text-transform: capitalize;
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   cursor: pointer;
   color: #9FB3BF;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .RunrunItem__name {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 300;
   margin: 3px 0 11px 0;
   line-height: 16px;
   cursor: pointer;
@@ -110,7 +126,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .RunrunItem__progressLink {

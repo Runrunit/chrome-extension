@@ -17,19 +17,22 @@
 .RunrunHeader__left span {
   float: left;
   line-height: 14px;
-  font-size: 11px;
+  font-size: 10px;
+  font-weight: 500;
   width: 220px;
 }
 
 .RunrunHeader__left_title {
-  font-size: 15px!important;
-  margin-top: 2px;
+  font-size: 14px!important;
+  font-weight: 300!important;
+  margin-top: 1px;
 }
 
 img.Settings {
   height: 18px;
   margin-right: 2px;
   margin-left: 5px;
+  margin-top: -4px;
 }
 
 img.RunrunIcon {

@@ -129,7 +129,7 @@ class OpenedTasksPage extends React.Component {
       else
         return this.state.tasks.map((task, index) => (
           <ul className={`list-group ${style.OpenedTasksPage}`}>
-            <li key={index} className="list-group-item">
+            <li key={index}>
               <div className={style.RunrunItem__area}>
                 <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__id}>ID {task.id}</span>
                 <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>

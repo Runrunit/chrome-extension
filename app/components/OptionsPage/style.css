@@ -13,25 +13,43 @@
 }
 
 .RunrunSettingsPage__title p {
-  font-size: 26px;
+  font-size: 36px;
+  font-weight: 300;
   line-height: 15px;
 }
 
-.RunrunSettingsPage__tutorialLink {
+.RunrunSettingsPage__tutorialLink:hover {
   cursor: pointer;
+  color: #2982CC;
+}
+
+.RunrunSettingsPage__tutorialLink:hover > span {
+  background: url('/images/question_blue_hover.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
 }
 
 .RunrunSettingsPage__tutorialLink p {
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 400;
   width: 50px;
   line-height: 12px;
   margin-bottom: 0;
   text-align: right;
+  color: #3399ff;
 }
 
-.RunrunSettingsPage__tutorialLink img {
+.RunrunSettingsPage__tutorialLink:hover > p {
+  color: #2982CC!important;
+}
+
+.RunrunSettingsPage__tutorialLink span {
   width: 25px;
+  height: 25px;
   margin-left: 5px;
+  background: url('/images/question_blue.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
 }
 
 .RunrunSettingsPage__offOnTitle {
@@ -39,8 +57,14 @@
   justify-content: space-between;
 }
 
+.RunrunSettingsPage__offOnTitle label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .RunrunSettingsPage__offOnTitle p {
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 400;
 }
 
 .RunrunSettingsPage__reminderExplanation {
@@ -52,7 +76,8 @@
   width: 260px;
   min-width: 260px;
   margin-right: 30px;
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 400;
 }
 
 .RunrunSettingsPage__reminderExplanation input {
@@ -112,6 +137,9 @@
   margin-top: 40px;
   color: #FFF;
   background-color: #E54241;
+  font-size: 18px;
+  padding: 16px;
+  font-weight: 400;
 }
 
 .RunrunSettingsPage button:hover {
@@ -158,14 +186,16 @@
 }
 
 .RunrunTutorialPage__steps p {
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;;
   margin-bottom: 5px;
   line-height: 20px;
   margin-top: -5px;
 }
 
 .RunrunTutorialPage__stepTextMuted {
-  margin-top: -5px!important;
   margin-bottom: 10px!important;
   line-height: 13px!important;
+  font-size: 13px!important;
+  font-weight: 400!important;
 }
