@@ -7,6 +7,7 @@ const path = appContainer.getAttribute('path') || '';
 
 import routes from './routes';
 
-render((
-  <Router history={hashHistory} routes={routes(path)} />
-), appContainer);
+render(
+  <Router history={hashHistory} routes={routes(path)} />, 
+  appContainer
+)
