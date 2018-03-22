@@ -128,62 +128,64 @@ class OpenedTasksPage extends React.Component {
         );
       else
         return this.state.tasks.map((task, index) => (
-          <ul className={`list-group ${style.OpenedTasksPage}`}>
-            <li key={index}>
-              <div className={style.RunrunItem__area}>
-                <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__id}>ID {task.id}</span>
-                <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
-                <span className={style.RunrunItem__autoPause}>
-                  {(this.state.autoPauseResume && task.is_working_on) ? (
-                    <span title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." onClick={this.handleTaskTracking(task.id)}>
-                      {
-                        (this.state.trackedTask == task.id) ?
-                        (<img src="/images/auto_pause_red.svg" />) :
-                        (<img src="/images/auto_pause_gray.svg" />)
-                      }
-                    </span>
-                  ) : ""}
-                </span>
-              </div>
-              <div className={`area-enabled-${task.is_working_on}`}>
-                {
-                  (task.is_working_on) ?
-                    (<span className={style.RunrunItem__actionBtnPause} onClick={this.handlePause(task.id)} title="Pausar a tarefa"></span>) :
-                    (<span className={style.RunrunItem__actionBtnPlay} onClick={this.handlePlay(task.id)} title="Iniciar a tarefa"></span>)
-                } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"></span>
-                {
-                  (task.on_going) ? 
-                  (
-                    <div className={style.RunrunItem__progressDiv}>
-                      <span className={style.RunrunItem__progressTime}>
-                        ONGOING
-                      </span>
-                      <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
-                      <span className={style.RunrunItem__progressBar}></span>
-                    </div>
-                  ) : (
-                    <div className={style.RunrunItem__progressDiv}>
-                      <span className={style.RunrunItem__progressTime}>
+          <div className={style.RunrunTasksList}>
+            <ul className={`list-group ${style.OpenedTasksPage}`}>
+              <li key={index}>
+                <div className={style.RunrunItem__area}>
+                  <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__id}>ID {task.id}</span>
+                  <span onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
+                  <span className={style.RunrunItem__autoPause}>
+                    {(this.state.autoPauseResume && task.is_working_on) ? (
+                      <span title="When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine." onClick={this.handleTaskTracking(task.id)}>
                         {
-                          timer(task.time_worked)
-                        } {
-                          (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
+                          (this.state.trackedTask == task.id) ?
+                            (<img src="/images/auto_pause_red.svg" />) :
+                            (<img src="/images/auto_pause_gray.svg" />)
                         }
                       </span>
-                      <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
-                      <span className={style.RunrunItem__progressBar}></span>
-                        <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }}></span>
-                    </div>
-                  )
-                }    
-              </div>
-              <div>
-                {(this.state.taskExpanded === task.id) ? (
-                  <TaskDetail task={task} />
-                ) : ""}
-              </div>
-            </li>
-          </ul>
+                    ) : ""}
+                  </span>
+                </div>
+                <div className={`area-enabled-${task.is_working_on}`}>
+                  {
+                    (task.is_working_on) ?
+                      (<span className={style.RunrunItem__actionBtnPause} onClick={this.handlePause(task.id)} title="Pausar a tarefa"></span>) :
+                      (<span className={style.RunrunItem__actionBtnPlay} onClick={this.handlePlay(task.id)} title="Iniciar a tarefa"></span>)
+                  } <span className={style.RunrunItem__completeBtn} onClick={this.handleClose(task.id)} title="Completar a tarefa"></span>
+                  {
+                    (task.on_going) ?
+                      (
+                        <div className={style.RunrunItem__progressDiv}>
+                          <span className={style.RunrunItem__progressTime}>
+                            ONGOING
+                      </span>
+                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                          <span className={style.RunrunItem__progressBar}></span>
+                        </div>
+                      ) : (
+                        <div className={style.RunrunItem__progressDiv}>
+                          <span className={style.RunrunItem__progressTime}>
+                            {
+                              timer(task.time_worked)
+                            } {
+                              (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
+                            }
+                          </span>
+                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                          <span className={style.RunrunItem__progressBar}></span>
+                          <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }}></span>
+                        </div>
+                      )
+                  }
+                </div>
+                <div>
+                  {(this.state.taskExpanded === task.id) ? (
+                    <TaskDetail task={task} />
+                  ) : ""}
+                </div>
+              </li>
+            </ul>
+          </div>
         ));
     })();
 
