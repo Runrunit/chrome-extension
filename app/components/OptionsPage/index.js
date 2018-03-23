@@ -110,7 +110,7 @@ class OptionsPage extends React.Component {
           <div className="form-group">
             <div className={style.RunrunSettingsPage__offOnTitle}>
               <label className="text-size-md" htmlFor="reminderTimeInMinutes">Reminder's interval</label>
-              <p className="text-size-sm">ON/OFF</p>
+              <p className="text-size-sm">OFF/ON</p>
             </div>
             <div className={style.RunrunSettingsPage__reminderExplanation}>
               <small className="text-muted">
@@ -126,7 +126,7 @@ class OptionsPage extends React.Component {
           <div className="form-group">
             <div className={style.RunrunSettingsPage__offOnTitle}>
               <label className="text-size-md" htmlFor="reminderTimeInMinutes">Auto Pause/Resume</label>
-              <p className="text-size-sm">ON/OFF</p>
+              <p className="text-size-sm">OFF/ON</p>
             </div>
             <div className={style.RunrunSettingsPage__autoPauseExplanation}>
               <small className="text-muted">

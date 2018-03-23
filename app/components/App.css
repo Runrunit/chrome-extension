@@ -5,6 +5,7 @@
   background: #F7F8FA;
   color: #566268;
   padding-bottom: 9px;
+  min-width: 410px;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,8 +26,25 @@
 }
 
 /* Card opacity */
-:global(.area-enabled-false) {
+:global(.area-enabled-false > div) {
   opacity: 0.3;
+}
+:global(.area-enabled-false > span) {
+  opacity: 0.3;
+}
+:global(.area-enabled-false > span:hover) {
+  opacity: 1;
+}
+
+/* Task detail status colors */
+:global(.task-detail-on-time) {
+  color: inherit;
+}
+:global(.task-detail-estimated-delay) {
+  color: #F77122;
+}
+:global(.task-detail-delayed) {
+  color: #EA3E35;
 }
 
 /* Navibation buttons */
@@ -43,7 +61,7 @@
 }
 :global(.inactive-nav) {
   background: #FFF;
-  color: #C5D3DA;
+  color: #8FA1AC;
 }
 :global(.active-nav:hover) {
   background: #C5D3DA;
@@ -95,13 +113,13 @@
 
 /* Switch styling */
 :global(.activatedSwitch) {
-  background-color: #E54241;
+  background-color: #38B927;
 }
 :global(.disabledSwitch) {
   background-color: #C5D3DA;
 }
-:global(.disabledSwitch:before) {
-  transform: translateX(18px);
+:global(.activatedSwitch:before) {
+  transform: translateX(19px);
 }
 
 /* Cover page styling */

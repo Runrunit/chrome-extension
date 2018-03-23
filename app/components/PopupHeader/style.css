@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.RunrunHeader a:focus, .RunrunHeader img:focus {
+  outline: none!important;
+}
+
 .RunrunHeader__left {
   width: 270px;
 }

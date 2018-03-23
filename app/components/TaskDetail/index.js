@@ -9,6 +9,25 @@ class TaskDetail extends React.Component {
     super(props);
   }
 
+  returnDetailClass(task) {
+    const estDeliveryDate = (task.estimated_delivery_date) ? moment(task.estimated_delivery_date).format("YYYY-MM-DD") : '';
+    const desiredDate = (task.desired_date) ? moment(task.desired_date).format("YYYY-MM-DD") : '';
+    const todayDate = moment().format("YYYY-MM-DD");
+    if (estDeliveryDate && desiredDate) {
+      if (estDeliveryDate <= desiredDate) {
+        return 'task-detail-on-time'
+      } else if (todayDate > desiredDate) {
+        return 'task-detail-delayed'
+      } else if (estDeliveryDate > desiredDate) {
+        return 'task-detail-estimated-delay'
+      } else {
+        return ''
+      }
+    } else {
+      return ''
+    }
+  }
+
   render() {
     const timer = (seconds) => moment.duration(seconds, 'seconds').format('HH:mm', { trim: false });
     return (
@@ -33,7 +52,11 @@ class TaskDetail extends React.Component {
             </div>
             <div className={style.RunrunItemDetail__flexItem}>
               <p className={style.RunrunItemDetail__flexTitle}>DESIRED<br />DUE DATE</p>
-              <p className={style.RunrunItemDetail__flexContent}>{moment(this.props.task.close_date).format("DD MMM")}</p>
+              {
+                (this.props.task.desired_date) ?
+                (<p className={style.RunrunItemDetail__flexContent}><span className={this.returnDetailClass(this.props.task)}>{moment(this.props.task.desired_date).format("DD MMM")}</span></p>) :
+                (<p className={style.RunrunItemDetail__flexContent}>--</p>)
+              }
             </div>
           </div>)
         }
