@@ -67,7 +67,7 @@ class OptionsPage extends React.Component {
         this.setState({
           msg: {
             type: 'success',
-            text: 'Mudanças salvas com sucesso'
+            text: 'Changes have been saved.'
           }
         });
       });

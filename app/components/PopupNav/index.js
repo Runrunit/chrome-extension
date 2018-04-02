@@ -19,8 +19,8 @@ class PopupNav extends React.Component {
       return (
         <div className="nav justify-content-center mb-3">
           <div className="btn-group" role="group">
-            <Link to="/opened-tasks" className={`btn btn-nav ${this.routeName.class[0]}`}>Abertas</Link>
-            <Link to="/closed-tasks" className={`btn btn-nav ${this.routeName.class[1]}`}>Entregues</Link>
+            <Link to="/opened-tasks" className={`btn btn-nav ${this.routeName.class[0]}`}>Open</Link>
+            <Link to="/closed-tasks" className={`btn btn-nav ${this.routeName.class[1]}`}>Complete</Link>
           </div>
         </div>
       );

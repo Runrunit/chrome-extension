@@ -1,3 +1,7 @@
+.loadingIconPage {
+  width: 410px;
+}
+
 .loadingIcon {
   position: relative;
   display: inline-block;

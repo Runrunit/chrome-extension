@@ -101,8 +101,8 @@ class ClosedTasksPage extends React.Component {
                   <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
                 </div>
                 <div className={`area-enabled-true`}>
-                  <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reiniciar a tarefa"></span>
-                  <span className={style.RunrunItem__completeBtn} title="Tarefa completada"><img src="/images/check_green_filled.svg" /></span>
+                  <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reopen"></span>
+                  <span className={style.RunrunItem__completeBtn} title="Task complete"><img src="/images/check_green_filled.svg" /></span>
                   {
                     (task.on_going) ?
                       (
@@ -110,7 +110,7 @@ class ClosedTasksPage extends React.Component {
                           <span className={style.RunrunItem__progressTime}>
                             ONGOING
                       </span>
-                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Check the task at the website" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
                           <span className={style.RunrunItem__progressBar}></span>
                         </div>
                       ) : (
@@ -122,7 +122,7 @@ class ClosedTasksPage extends React.Component {
                               (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
                             }
                           </span>
-                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Check the task at the website" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
                           <span className={style.RunrunItem__progressBar}></span>
                           <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }}></span>
                         </div>

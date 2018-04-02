@@ -5,7 +5,7 @@
   background: #F7F8FA;
   color: #566268;
   padding-bottom: 9px;
-  min-width: 410px;
+  min-width: 390px;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -129,7 +129,7 @@
   background-repeat: no-repeat;
   background-position: 50% 8px;
   height: 585px;
-  width: 380px;
+  width: 390px;
   position: relative;
 }
 :global(.cover-page-button) {

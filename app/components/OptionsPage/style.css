@@ -157,9 +157,11 @@
 }
 
 .RunrunTutorialPage__title p {
-  font-size: 26px;
-  line-height: 25px;
-  margin-left: 5px;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 22px;
+  margin-left: 6px;
+  color: #566268;
 }
 
 .RunrunTutorialPage__titleIcon {
@@ -187,7 +189,7 @@
 
 .RunrunTutorialPage__steps p {
   font-size: 16px;
-  font-weight: 400;;
+  font-weight: 400;
   margin-bottom: 5px;
   line-height: 20px;
   margin-top: -5px;
@@ -195,7 +197,8 @@
 
 .RunrunTutorialPage__stepTextMuted {
   margin-bottom: 10px!important;
-  line-height: 13px!important;
-  font-size: 13px!important;
+  line-height: 15px!important;
+  font-size: 11px!important;
   font-weight: 400!important;
+  color: #9FB3BF;
 }
