@@ -147,3 +147,6 @@
   color: #FFF;
   background-color:  #D23E3E;
 }
+:global(.cover-page-button:focus) {
+  outline: none!important;
+}
