@@ -55,16 +55,14 @@
   margin-right: 5px;
   display: inline-block;
   background: url(/images/refresh_blue.svg);
-  background-size: 18px;
+  background-size: 17px;
   background-repeat: no-repeat;
-  background-position-y: 2px;
   float: left;
 }
 
 .RunrunItem__actionBtn:hover {
   background: url('/images/refresh_blue_hover.svg');
-  background-size: 18px;
-  background-position-y: 2px;
+  background-size: 17px;
   background-repeat: no-repeat;
 }
 
@@ -76,6 +74,7 @@
 
 .RunrunItem__completeBtn img {
   width: 20px;
+  vertical-align: top;
 }
 
 .RunrunItem__progressDiv {

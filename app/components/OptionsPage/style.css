@@ -152,7 +152,7 @@
 .RunrunTutorialPage__title {
   display: flex;
   cursor: pointer;
-  width: 140px;
+  width: 180px;
   margin-bottom: 20px;
 }
 
@@ -197,8 +197,8 @@
 
 .RunrunTutorialPage__stepTextMuted {
   margin-bottom: 10px!important;
-  line-height: 15px!important;
-  font-size: 11px!important;
+  line-height: 18px!important;
+  font-size: 13px!important;
   font-weight: 400!important;
-  color: #9FB3BF;
+  color: #8FA1AC;
 }

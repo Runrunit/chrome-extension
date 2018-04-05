@@ -158,12 +158,12 @@ class OptionsPage extends React.Component {
           </div>
           <div>
             <p>2. Then, if there is no "App key", click on "Generate".</p>
-            <p className={style.RunrunTutorialPage__stepTextMuted}><small className="text-muted">* Permission needed. If it does not appear, contact anyone with "Administrator" role.</small></p>
+            <p className={style.RunrunTutorialPage__stepTextMuted}>* Permission needed. If it does not appear, contact anyone with "Administrator" role.</p>
             <img src="/images/tutorial_02.svg" />
           </div>
           <div>
             <p>3. Your "App Key" and "User Token" will be displayed</p>
-            <p className={style.RunrunTutorialPage__stepTextMuted}><small className="text-muted">* If you aren't an Administrator, you will just see the "User Token"</small></p>
+            <p className={style.RunrunTutorialPage__stepTextMuted}>* If you aren't an Administrator, you will just see the "User Token"</p>
             <img src="/images/tutorial_03.svg" />
           </div>
         </div>
