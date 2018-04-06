@@ -1,3 +1,7 @@
+.loadingIconPage {
+  width: 410px;
+}
+
 .loadingIcon {
   position: relative;
   display: inline-block;
@@ -14,6 +18,7 @@
   border-right: 0.15em solid transparent;
   animation: spin 1s linear infinite;
   margin: auto;
+  margin-top: 20px;
 }
 
 @keyframes spin {

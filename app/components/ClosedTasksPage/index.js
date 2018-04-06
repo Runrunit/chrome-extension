@@ -66,8 +66,8 @@ class ClosedTasksPage extends React.Component {
   }
 
   returnTaskProgress(task) {
-    const progress = task.time_worked / task.current_estimate_seconds * 315;
-    const maxProgress = (progress >= 315) ? 315 : progress
+    const progress = task.time_worked / task.current_estimate_seconds * 300;
+    const maxProgress = (progress >= 300) ? 300 : progress
     return maxProgress
   }
 
@@ -93,48 +93,50 @@ class ClosedTasksPage extends React.Component {
         );
       else
         return this.state.tasks.map((task, index) => (
-          <ul className={`list-group ${style.OpenedTasksPage}`}>
-            <li key={index} className="list-group-item">
-              <div onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__area}>
-                <span className={style.RunrunItem__id}>ID {task.id}</span>
-                <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
-              </div>
-              <div className={`area-enabled-true`}>
-                <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reiniciar a tarefa"><img src="/images/refresh_blue.svg" /></span>
-                <span className={style.RunrunItem__completeBtn} title="Tarefa completada"><img src="/images/check_green_filled.svg" /></span>
-                {
-                  (task.on_going) ?
-                    (
-                      <div className={style.RunrunItem__progressDiv}>
-                        <span className={style.RunrunItem__progressTime}>
-                          ONGOING
+          <div className={style.RunrunTasksList}>
+            <ul className={`list-group ${style.OpenedTasksPage}`}>
+              <li key={index}>
+                <div onClick={this.handleTaskDetailToggle(task.id)} className={style.RunrunItem__area}>
+                  <span className={style.RunrunItem__id}>ID {task.id}</span>
+                  <span className={style.RunrunItem__name}>{task.title} - {task.project_name}</span>
+                </div>
+                <div className={`area-enabled-true`}>
+                  <span className={style.RunrunItem__actionBtn} onClick={this.handleReopen(task.id)} title="Reopen"></span>
+                  <span className={style.RunrunItem__completeBtn} title="Task complete"><img src="/images/check_green_filled.svg" /></span>
+                  {
+                    (task.on_going) ?
+                      (
+                        <div className={style.RunrunItem__progressDiv}>
+                          <span className={style.RunrunItem__progressTime}>
+                            ONGOING
                       </span>
-                        <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
-                        <span className={style.RunrunItem__progressBar}></span>
-                      </div>
-                    ) : (
-                      <div className={style.RunrunItem__progressDiv}>
-                        <span className={style.RunrunItem__progressTime}>
-                          {
-                            timer(task.time_worked)
-                          } {
-                            (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
-                          }
-                        </span>
-                        <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Ver tarefa no site" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
-                        <span className={style.RunrunItem__progressBar}></span>
-                        <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? 'darkorange' : 'lime' }}></span>
-                      </div>
-                    )
-                }
-              </div>
-              <div>
-                {(this.state.taskExpanded === task.id) ? (
-                  <TaskDetail task={task} />
-                ) : ""}
-              </div>
-            </li>
-          </ul>
+                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Check the task at the website" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                          <span className={style.RunrunItem__progressBar}></span>
+                        </div>
+                      ) : (
+                        <div className={style.RunrunItem__progressDiv}>
+                          <span className={style.RunrunItem__progressTime}>
+                            {
+                              timer(task.time_worked)
+                            } {
+                              (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ""
+                            }
+                          </span>
+                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target="_blank" title="Check the task at the website" className={style.RunrunItem__progressLink}><span data-glyph="external-link" className="oi"></span></a>
+                          <span className={style.RunrunItem__progressBar}></span>
+                          <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }}></span>
+                        </div>
+                      )
+                  }
+                </div>
+                <div>
+                  {(this.state.taskExpanded === task.id) ? (
+                    <TaskDetail task={task} />
+                  ) : ""}
+                </div>
+              </li>
+            </ul>
+          </div>
         ));
     })();
 
@@ -142,7 +144,7 @@ class ClosedTasksPage extends React.Component {
       <div>
         <div>
           <PopupHeader title="Tasks (Last 10 Deliveries)" />
-          <PopupNav />
+          <PopupNav routeName="closed" />
         </div>
         {/* <div className={`style.TasksDiv`}> */}
         <div className={style.TasksDiv}>

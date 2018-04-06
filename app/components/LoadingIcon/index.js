@@ -11,7 +11,9 @@ class LoadingIcon extends React.Component{
 
   render () {
     return (
-      <span className={`loading_icon ${(this.props.visible)?style.loadingIcon:''}`}  aria-hidden="true" ></span>
+      <div className={style.loadingIconPage}>
+        <span className={`loading_icon ${(this.props.visible)?style.loadingIcon:''}`}  aria-hidden="true" ></span>
+      </div>
     );
   }
 }
