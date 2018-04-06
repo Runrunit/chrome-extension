@@ -95,7 +95,7 @@ class RunrunTasks {
           chrome.notifications.create(
               'runrunit_task_notification', {
               "type": 'basic', 
-              "iconUrl": 'images/icon_128.png', 
+              "iconUrl": 'images/icon_128_alert.png', 
               "title": "Pause!!!", 
               "message": `You have stopped working on "${this._is_working_on.title}".`
               },
@@ -107,7 +107,7 @@ class RunrunTasks {
           chrome.notifications.create(
               'runrunit_task_notification', {
               "type": 'basic', 
-              "iconUrl": 'images/icon_128_active.png', 
+              "iconUrl": 'images/icon_128_alert_active.png', 
               "title": "Work!!!", 
               "message": `You are now working on "${workingTask.title}".`
               },
@@ -132,7 +132,7 @@ class RunrunTasks {
             chrome.notifications.create(
               'runrunit_task_notification', {
                 "type": 'basic', 
-                "iconUrl": 'images/icon_128_reminder.png', 
+                "iconUrl": 'images/icon_128_alert_active.png', 
                 "title": "Reminder!!!", 
                 "message": `You are still working on "${this._is_working_on.title}".`
               },
@@ -143,7 +143,7 @@ class RunrunTasks {
             chrome.notifications.create(
               'runrunit_task_notification', {
                 "type": 'basic', 
-                "iconUrl": 'images/icon_128_reminder.png', 
+                "iconUrl": 'images/icon_128_alert.png', 
                 "title": "Reminder!!!", 
                 "message": `You have no tasks currently in progress.`
               },

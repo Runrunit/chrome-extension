@@ -1,13 +1,46 @@
+.RunrunHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  max-width: 410px;
+  width: 410px;
+}
+
+.RunrunHeader a:focus, .RunrunHeader img:focus {
+  outline: none!important;
+}
+
+.RunrunHeader__left {
+  width: 270px;
+}
+
+.RunrunHeader__left a {
+  float: left;
+  margin-right: 10px;
+}
+
+.RunrunHeader__left span {
+  float: left;
+  line-height: 14px;
+  font-size: 10px;
+  font-weight: 500;
+  width: 220px;
+}
+
+.RunrunHeader__left_title {
+  font-size: 14px!important;
+  font-weight: 300!important;
+  margin-top: 1px;
+}
+
 img.Settings {
-  width: 20px;
-  float: right;
-  margin-top: 3px;
-  margin-right: 5px;
+  height: 18px;
+  margin-right: -4px;
+  margin-left: 5px;
+  margin-top: -4px;
 }
 
 img.RunrunIcon {
-  width: 20px;
-  float: left;
-  margin-top: 3px;
-  margin-left: 5px;
+  width: 30px;
 }

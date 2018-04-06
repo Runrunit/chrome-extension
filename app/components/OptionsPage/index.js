@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './style.css';
 import request from '../AuthInterceptor';
 
 class OptionsPage extends React.Component {
@@ -66,7 +67,7 @@ class OptionsPage extends React.Component {
         this.setState({
           msg: {
             type: 'success',
-            text: "Success!"
+            text: 'Changes have been saved.'
           }
         });
       });
@@ -81,7 +82,7 @@ class OptionsPage extends React.Component {
   render() {
     const msg = (this.state.msg) ? (
       <div className={`alert alert-${this.state.msg.type} alert-dismissible fade show`} role="alert">
-        <button type="button" className="close" onClick={this.handleMsgHide}>
+        <button type="button" className="close alert-close" onClick={this.handleMsgHide}>
           <span aria-hidden="true">&times;</span>
         </button>
         {this.state.msg.text}
@@ -89,56 +90,83 @@ class OptionsPage extends React.Component {
     ) : "";
 
     const form = (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="appkey">App Key</label>
-          <input type="text" className="form-control" name="appkey" value={this.state.appkey} required onChange={this.handleInputChange} />
+      <div>
+        <div className={style.RunrunSettingsPage__title}>
+          <p>Settings</p>
+          <span onClick={this.handleViewToggle} className={style.RunrunSettingsPage__tutorialLink}>
+            <span className="float-right"></span>
+            <p className="float-right">See the tutorial</p>
+          </span>
         </div>
-        <div className="form-group">
-          <label htmlFor="usertoken">User Token</label>
-          <input type="text" className="form-control" name="usertoken" value={this.state.usertoken} required onChange={this.handleInputChange} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="reminderTimeInMinutes">Reminder's interval ({
-              (this.state.reminderEnabled) ? "Enabled" : "Disabled"
-            })</label>
-          <div className="input-group">
-            <span className="input-group-addon">
-              <input type="checkbox" name="reminderEnabled" checked={this.state.reminderEnabled} onChange={this.handleInputChange} />
-            </span>
-            <input type="number" min="1" className="form-control" name="reminderTimeInMinutes" value={this.state.reminderTimeInMinutes} disabled={!this.state.reminderEnabled} required onChange={this.handleInputChange} />
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label className="text-size-md" htmlFor="appkey">App Key</label>
+            <input type="text" className="form-control" name="appkey" value={this.state.appkey} required onChange={this.handleInputChange} />
           </div>
-          <small className="form-text text-muted">
-            * You will be reminded every X minutes whether you are either working on the same task or haven't started one. In case you either pause or start a task, the timer will reset.
-          </small>
-        </div>
-
-        <div className="form-check">
-          <label className="form-check-label" htmlFor="autoPauseResume">
-            <input type="checkbox" className="form-check-input" name="autoPauseResume" checked={this.state.autoPauseResume} onChange={this.handleInputChange} /> Auto Pause/Resume
-          </label>
-          <small className="form-text text-muted">
-            * By enabling this option, an icon will be displayed to the right of the task you're currently working on, allowing it be automatically paused/resumed when you lock/unlock your computer. However, we've noticed that this feature doesn't work as expected on some computers. If you really wish to use this feature, we strongly suggest you to test it by locking your computer for a few minutes and then checking on your task details to see if the recorded time is correct.
-          </small>
-        </div>
-
-        <button type="submit" className="btn btn-primary">Save</button>
-        <button type="button" className="btn btn-info float-right" onClick={this.handleViewToggle}>Tutorial</button>
-      </form>
+          <div className="form-group">
+            <label className="text-size-md" htmlFor="usertoken">User Token</label>
+            <input type="text" className="form-control" name="usertoken" value={this.state.usertoken} required onChange={this.handleInputChange} />
+          </div>
+          <div className="form-group">
+            <div className={style.RunrunSettingsPage__offOnTitle}>
+              <label className="text-size-md" htmlFor="reminderTimeInMinutes">Reminder's interval</label>
+              <p className="text-size-sm">OFF/ON</p>
+            </div>
+            <div className={style.RunrunSettingsPage__reminderExplanation}>
+              <small className="text-muted">
+                * You will be reminded every X minutes whether you are either working on the same task or haven't started one. In case you either pause or start a task, the timer will reset.
+              </small>
+              <input type="number" min="1" className="form-control" name="reminderTimeInMinutes" value={this.state.reminderTimeInMinutes} disabled={!this.state.reminderEnabled} required onChange={this.handleInputChange} />
+              <label className={style.RunrunSettingsPage__settingsSwitch}>
+                <input className="display-none" type="checkbox" name="reminderEnabled" checked={this.state.reminderEnabled} onChange={this.handleInputChange} />
+                <span className={(this.state.reminderEnabled) ? 'activatedSwitch' : 'disabledSwitch'}></span>
+              </label>
+            </div>
+          </div>
+          <div className="form-group">
+            <div className={style.RunrunSettingsPage__offOnTitle}>
+              <label className="text-size-md" htmlFor="reminderTimeInMinutes">Auto Pause/Resume</label>
+              <p className="text-size-sm">OFF/ON</p>
+            </div>
+            <div className={style.RunrunSettingsPage__autoPauseExplanation}>
+              <small className="text-muted">
+                 * By enabling this option, an icon will be displayed to the right of the task you're currently working on, allowing it be automatically paused/resumed when you lock/unlock your computer. However, we've noticed that this feature doesn't work as expected on some computers. If you really wish to use this feature, we strongly suggest you to test it by locking your computer for a few minutes and then checking on your task details to see if the recorded time is correct.
+              </small>
+              <label className={style.RunrunSettingsPage__settingsSwitch}>
+                <input className="display-none" type="checkbox" name="autoPauseResume" checked={this.state.autoPauseResume} onChange={this.handleInputChange} />
+                <span className={(this.state.autoPauseResume) ? 'activatedSwitch' : 'disabledSwitch'}></span>
+              </label>
+            </div>
+          </div>
+          <button type="submit" className="btn btn-block">Save</button>
+        </form>
+      </div>
     );
 
     const tutorial = (
       <div>
-        <div>
-          <strong>1. Go to your profile on Runrun.it</strong><br />
-          <img src="/images/tutorial1.png" /><br /><br />
-          <strong>2. Then, if there is no "App key", click on "Generate".</strong><br />
-          <img src="/images/tutorial2.png" /><br />
-          <span>* Permission needed. If it does not appear, contact anyone with "Administrator" role.</span><br /><br />
-          <strong>3. Your "App Key" and "User Token" will be displayed (or only the "User Token" if you aren't an "Administrator").</strong><br />
-          <img src="/images/tutorial3.png" /><br /><br />
+        <div className={style.RunrunTutorialPage__title}>
+          <span onClick={this.handleViewToggle}>
+            <span className={`float-left ${style.RunrunTutorialPage__titleIcon}`}></span>
+            <p className="float-left">Settings</p>
+          </span>
         </div>
-        <button type="button" className="btn btn-info" onClick={this.handleViewToggle}>&lt;</button>
+        <div className={style.RunrunTutorialPage__steps}>
+          <div>
+            <p>1. Go to your profile on Runrun.it</p>
+            <img src="/images/tutorial_01.svg" />
+          </div>
+          <div>
+            <p>2. Then, if there is no "App key", click on "Generate".</p>
+            <p className={style.RunrunTutorialPage__stepTextMuted}>* Permission needed. If it does not appear, contact anyone with "Administrator" role.</p>
+            <img src="/images/tutorial_02.svg" />
+          </div>
+          <div>
+            <p>3. Your "App Key" and "User Token" will be displayed</p>
+            <p className={style.RunrunTutorialPage__stepTextMuted}>* If you aren't an Administrator, you will just see the "User Token"</p>
+            <img src="/images/tutorial_03.svg" />
+          </div>
+        </div>
       </div>
     );
 
@@ -146,16 +174,10 @@ class OptionsPage extends React.Component {
       <div className="container">
         <div className="content">
           <div className="row justify-content-md-center">
-            <div className="col col-md-6"><br /><br />
-              <div className="card">
-                <div className="card-body">
-                  {msg}
-                  <div className="text-center">
-                    <img src="/images/icon_128.png" />
-                  </div>
-                  <h1 className="text-center">Runrun.it Settings</h1>
-                  {(this.state.view === "options") ? form : tutorial}
-                </div>
+            <div className="col col-md-6">
+              <div className={style.RunrunSettingsPage}>
+                {msg}
+                {(this.state.view === "options") ? form : tutorial}
               </div>
             </div>
           </div>

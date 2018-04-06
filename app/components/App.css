@@ -1,35 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+/* Global styles */
+:global(.app) {
+  background: #F7F8FA;
+  color: #566268;
+  padding-bottom: 9px;
+  min-width: 390px;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 :global(.btn) {
   cursor: pointer;
 }
-
-:global(.btn.nohover) {
-  cursor: default;
-  pointer-events: none;
-}
-
-:global(.text-size-xs) {
-  font-size: 10px;
-}
-
-:global(.text-size-sm) {
-  font-size: 12px;
-}
-
 :global(.text-size-md) {
   font-size: 14px;
 }
-
-:global(.text-size-lg) {
-  font-size: 16px;
+:global(.list-group-item) {
+  border: none;
+  margin-bottom: 3px;
+  padding: .75rem .75rem;
+}
+:global(.display-none) {
+  display: none;
 }
 
-:global(.text-size-xlg) {
+/* Card opacity */
+:global(.area-enabled-false > div) {
+  opacity: 0.3;
+}
+:global(.area-enabled-false > span) {
+  opacity: 0.3;
+}
+:global(.area-enabled-false > span:hover) {
+  opacity: 1;
+}
+
+/* Task detail status colors */
+:global(.task-detail-on-time) {
+  color: inherit;
+}
+:global(.task-detail-estimated-delay) {
+  color: #F77122;
+}
+:global(.task-detail-delayed) {
+  color: #EA3E35;
+}
+
+/* Navibation buttons */
+:global(.btn-nav) {
+  border: 1px solid #C5D3DA;
+  border-radius: 6px; 
+  font-size: 14px;
+  font-weight: 600;
+  width: 125px;
+}
+:global(.active-nav) {
+  background: #C5D3DA;
+  color: #FFF;
+}
+:global(.inactive-nav) {
+  background: #FFF;
+  color: #8FA1AC;
+}
+:global(.active-nav:hover) {
+  background: #C5D3DA;
+  color: #FFF;
+  cursor: default;
+}
+:global(.inactive-nav:hover) {
+  background: #9FB3BF ;
+  color: #FFF;
+}
+:global(.active-nav:focus) {
+  box-shadow: none;
+}
+:global(.inactive-nav:focus) {
+  box-shadow: none;
+}
+
+/* Alerts */
+:global(.alert) {
+  position: absolute;
+  top: 0;
+  width: 450px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #D8E9CA;
+  background-color: #E1F0DB;
+  font-size: 12px!important;
+  font-weight: 600;
+  color: #497D4A;
+}
+:global(.alert-dismissible) {
+  /* position: relative; */
+  margin-bottom: 25px;
+}
+:global(.close.alert-close) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+:global(.close.alert-close:hover) {
+  background-color: transparent;
+}
+:global(.close.alert-close:focus) {
+  outline: none;
+}
+
+/* Switch styling */
+:global(.activatedSwitch) {
+  background-color: #38B927;
+}
+:global(.disabledSwitch) {
+  background-color: #C5D3DA;
+}
+:global(.activatedSwitch:before) {
+  transform: translateX(19px);
+}
+
+/* Cover page styling */
+:global(.cover-page) {
+  background: url('/images/home.png');
+  background-size: 370px;
+  background-repeat: no-repeat;
+  background-position: 50% 8px;
+  height: 585px;
+  width: 390px;
+  position: relative;
+}
+:global(.cover-page-button) {
+  color: #FFF;
+  background-color: #E54241;
+  position: absolute;
+  bottom: 50px;
+  width: 330px;
+  left: 26px;
   font-size: 18px;
+  padding: 16px;
+  font-weight: 400;
 }
-
-:global(.btn-xs) {
-  padding: .25rem .25rem;
-  font-size: .4rem;
-  line-height: .75;
-  border-radius: .2rem;
+:global(.cover-page-button:hover) {
+  color: #FFF;
+  background-color:  #D23E3E;
+}
+:global(.cover-page-button:focus) {
+  outline: none!important;
 }

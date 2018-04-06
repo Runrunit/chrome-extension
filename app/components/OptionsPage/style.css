@@ -1,0 +1,204 @@
+.RunrunSettingsPage {
+  width: 550px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 70px 50px;
+}
+
+.RunrunSettingsPage__title {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 20px
+}
+
+.RunrunSettingsPage__title p {
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 15px;
+}
+
+.RunrunSettingsPage__tutorialLink:hover {
+  cursor: pointer;
+  color: #2982CC;
+}
+
+.RunrunSettingsPage__tutorialLink:hover > span {
+  background: url('/images/question_blue_hover.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+.RunrunSettingsPage__tutorialLink p {
+  font-size: 14px;
+  font-weight: 400;
+  width: 50px;
+  line-height: 12px;
+  margin-bottom: 0;
+  text-align: right;
+  color: #3399ff;
+}
+
+.RunrunSettingsPage__tutorialLink:hover > p {
+  color: #2982CC!important;
+}
+
+.RunrunSettingsPage__tutorialLink span {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  background: url('/images/question_blue.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+.RunrunSettingsPage__offOnTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.RunrunSettingsPage__offOnTitle label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.RunrunSettingsPage__offOnTitle p {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.RunrunSettingsPage__reminderExplanation {
+  display: flex;
+  align-items: center;
+}
+
+.RunrunSettingsPage__reminderExplanation small {
+  width: 260px;
+  min-width: 260px;
+  margin-right: 30px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.RunrunSettingsPage__reminderExplanation input {
+  width: 90px;
+  min-width: 90px;
+  margin-right: 30px;
+}
+
+.RunrunSettingsPage__autoPauseExplanation {
+  display: flex;
+  align-items: center;
+}
+
+.RunrunSettingsPage__autoPauseExplanation small {
+  width: 379px;
+  min-width: 379px;
+  margin-right: 30px;
+  font-size: 10px;
+}
+
+.RunrunSettingsPage__settingsSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 15px;
+}
+
+.RunrunSettingsPage__settingsSwitch span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: #ccc; */
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  width: 40px;
+  height: 20px;
+}
+
+.RunrunSettingsPage__settingsSwitch span:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.RunrunSettingsPage button {
+  margin-top: 40px;
+  color: #FFF;
+  background-color: #E54241;
+  font-size: 18px;
+  padding: 16px;
+  font-weight: 400;
+}
+
+.RunrunSettingsPage button:hover {
+  color: #FFF;
+  background-color: #D23E3E;
+}
+
+/* TUTORIAL */ 
+
+.RunrunTutorialPage__title {
+  display: flex;
+  cursor: pointer;
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.RunrunTutorialPage__title p {
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 22px;
+  margin-left: 6px;
+  color: #566268;
+}
+
+.RunrunTutorialPage__titleIcon {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  background: url('/images/nav-circle-left-blue.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+.RunrunTutorialPage__titleIcon:hover {
+  background: url('/images/nav-circle-left-blue-hover.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+.RunrunTutorialPage__steps {
+  margin-left: 30px;
+}
+
+.RunrunTutorialPage__steps > div {
+  margin-bottom: 30px;
+}
+
+.RunrunTutorialPage__steps p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  line-height: 20px;
+  margin-top: -5px;
+}
+
+.RunrunTutorialPage__stepTextMuted {
+  margin-bottom: 10px!important;
+  line-height: 18px!important;
+  font-size: 13px!important;
+  font-weight: 400!important;
+  color: #8FA1AC;
+}

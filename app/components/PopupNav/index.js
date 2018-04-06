@@ -1,24 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router';
-import style from './style.css';
+import PropTypes from 'prop-types';
 
 class PopupNav extends React.Component {
   constructor(props) {
     super(props);
+    this.routeName = {
+      class: (this.props.routeName === 'opened') ? ['active-nav', 'inactive-nav'] : ['inactive-nav', 'active-nav']
+    }
   }
 
   render() {
-    return (
-      <ul className="nav justify-content-center mb-3">
-        <li className="nav-item">
-          <Link to="/opened-tasks" className="rounded p-2" activeClassName={style.navActive}>Open</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/closed-tasks" className="rounded p-2" activeClassName={style.navActive}>Complete</Link>
-        </li>
-      </ul>
-    );
+    if (!localStorage.getItem("appkey"))
+      return (
+        <span></span>
+      );
+    else 
+      return (
+        <div className="nav justify-content-center mb-3">
+          <div className="btn-group" role="group">
+            <Link to="/opened-tasks" className={`btn btn-nav ${this.routeName.class[0]}`}>Open</Link>
+            <Link to="/closed-tasks" className={`btn btn-nav ${this.routeName.class[1]}`}>Complete</Link>
+          </div>
+        </div>
+      );
   }
 }
+
+PopupNav.propTypes = {
+  routeName: PropTypes.string.isRequired
+};
 
 export default PopupNav;
