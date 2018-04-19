@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>nav-circle-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-552.000000, -131.000000)" fill-rule="nonzero" fill="#3399FF">
+            <g id="nav-circle-left" transform="translate(552.000000, 131.000000)">
+                <path d="M13,26 C5.8440367,26 0,20.1559633 0,13 C0,5.8440367 5.8440367,0 13,0 C20.1559633,0 26,5.8440367 26,13 C26,20.1559633 20.1559633,26 13,26 Z M16.9357798,7.6330275 L11.6880734,12.8807339 L16.9357798,18.1284404 L15.266055,19.7981651 L8.3486239,12.8807339 L15.266055,5.96330275 L16.9357798,7.6330275 Z M13,2.14678899 C7.0366972,2.14678899 2.14678899,7.0366972 2.14678899,13 C2.14678899,18.9633028 7.0366972,23.853211 13,23.853211 C18.9633028,23.853211 23.853211,18.9633028 23.853211,13 C23.853211,7.0366972 18.9633028,2.14678899 13,2.14678899 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
