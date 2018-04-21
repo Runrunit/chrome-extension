@@ -50,13 +50,13 @@ class RunrunTasks {
       } catch (error) {
         const request = this.getHttpClient()
         request.get(`https://secure.runrun.it/api/v1.0/users/me`)
-        .then(response => {
-          localStorage.setItem('user', JSON.stringify(response.data))
-          resolve(response.data)
-        })
-        .catch(e => {
-          reject(e)
-        })
+          .then(response => {
+            localStorage.setItem('user', JSON.stringify(response.data))
+            resolve(response.data)
+          })
+          .catch(e => {
+            reject(e)
+          })
       }
     })
   }
@@ -90,24 +90,24 @@ class RunrunTasks {
         if (this._is_working_on !== false && workingTask === undefined) {
           this._reminder = moment()
           chrome.notifications.create(
-              'runrunit_task_notification', {
-                'type': 'basic',
-                'iconUrl': 'images/icon_128_alert.png',
-                'title': 'Pause!!!',
-                'message': `You have stopped working on "${this._is_working_on.title}".`
-              },
-              () => {}
+            'runrunit_task_notification', {
+              'type': 'basic',
+              'iconUrl': 'images/icon_128_alert.png',
+              'title': 'Pause!!!',
+              'message': `You have stopped working on "${this._is_working_on.title}".`
+            },
+            () => {}
           )
         } else if (workingTask !== undefined && (this._is_working_on === false || this._is_working_on.id !== workingTask.id)) {
           this._reminder = moment()
           chrome.notifications.create(
-              'runrunit_task_notification', {
-                'type': 'basic',
-                'iconUrl': 'images/icon_128_alert_active.png',
-                'title': 'Work!!!',
-                'message': `You are now working on "${workingTask.title}".`
-              },
-              () => {}
+            'runrunit_task_notification', {
+              'type': 'basic',
+              'iconUrl': 'images/icon_128_alert_active.png',
+              'title': 'Work!!!',
+              'message': `You are now working on "${workingTask.title}".`
+            },
+            () => {}
           )
         }
 
@@ -166,9 +166,9 @@ class RunrunTasks {
   pauseTask (id) {
     const request = this.getHttpClient()
     request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/pause`)
-    .then(response => {
-      this.updateTasks()
-    })
+      .then(response => {
+        this.updateTasks()
+      })
   }
 
   resumeTask (id) {

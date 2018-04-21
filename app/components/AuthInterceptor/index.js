@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const AuthInterceptor = axios.create();
+const AuthInterceptor = axios.create()
 AuthInterceptor.interceptors.request.use((config) => {
-  config.headers['App-Key'] = localStorage.getItem("appkey");
-  config.headers['User-Token'] = localStorage.getItem("usertoken");
-  
-  return config;
-});
+  config.headers['App-Key'] = localStorage.getItem('appkey')
+  config.headers['User-Token'] = localStorage.getItem('usertoken')
 
-export default AuthInterceptor;
+  return config
+})
+
+export default AuthInterceptor

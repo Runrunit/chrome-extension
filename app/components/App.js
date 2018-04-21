@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import style from './App.css';
+import style from './App.css'
 
-class App extends React.Component{
-	constructor(props) {
-    super(props);
-	}
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+  }
 
-	render() {
-		return (
-      <div className="app">
-				{this.props.children}
-			</div>
-		);
-	}
+  render () {
+    return (
+      <div className='app'>
+        {this.props.children}
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
