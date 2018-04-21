@@ -1,17 +1,17 @@
-const webpack = require('webpack');
+const webpack = require('webpack')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    popup: ['babel-polyfill', "./app/popup.js"],
-    options: ['babel-polyfill', "./app/options.js"],
-    background: "./app/background/index.js"
+    popup: ['babel-polyfill', './app/popup.js'],
+    options: ['babel-polyfill', './app/options.js'],
+    background: './app/background/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].bundle.js"
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
@@ -25,8 +25,8 @@ module.exports = {
         }
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i, 
-        loader: "file-loader?name=/images/[name].[ext]"
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader?name=/images/[name].[ext]'
       },
       {
         test: /\.css$/,
@@ -88,4 +88,4 @@ module.exports = {
       { from: './app/images', to: 'images' } // filter this thing later
     ])
   ]
-};
+}
