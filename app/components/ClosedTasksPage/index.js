@@ -88,7 +88,7 @@ class ClosedTasksPage extends React.Component {
       } else if (this.state.tasks instanceof Array && this.state.tasks.length === 0) {
         return (
           <p className='text-center'>
-            Não tem nenhuma tarefa.
+            No tasks.
           </p>
         )
       } else {
