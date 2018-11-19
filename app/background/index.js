@@ -1,5 +1,6 @@
-import axios from 'axios'
+/* global localStorage, chrome */
 import moment from 'moment'
+import request from '../components/AuthInterceptor'
 
 JSON.isAJSONString = (object) => {
   try {
@@ -12,8 +13,6 @@ JSON.isAJSONString = (object) => {
 
 class RunrunTasks {
   constructor () {
-    this._tasks
-
     if (!localStorage.getItem('reminderEnabled')) { localStorage.setItem('reminderEnabled', true) }
 
     if (!localStorage.getItem('reminderTimeInMinutes')) { localStorage.setItem('reminderTimeInMinutes', 30) }
@@ -26,20 +25,8 @@ class RunrunTasks {
 
     this._is_working_on = (localStorage.getItem('is_working_on') && JSON.isAJSONString(localStorage.getItem('is_working_on'))) ? JSON.parse(localStorage.getItem('is_working_on')) : false
     this._reminder = (localStorage.getItem('reminder')) ? moment(localStorage.getItem('reminder')) : moment()
-    parent = this
 
     this.updateTasks = this.updateTasks.bind(this)
-  }
-
-  getHttpClient () {
-    const client = axios.create()
-    client.interceptors.request.use((config) => {
-      config.headers['App-Key'] = localStorage.getItem('appkey')
-      config.headers['User-Token'] = localStorage.getItem('usertoken')
-
-      return config
-    })
-    return client
   }
 
   getUser () {
@@ -48,7 +35,6 @@ class RunrunTasks {
         const user = (localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : {}
         resolve(user)
       } catch (error) {
-        const request = this.getHttpClient()
         request.get(`https://secure.runrun.it/api/v1.0/users/me`)
           .then(response => {
             localStorage.setItem('user', JSON.stringify(response.data))
@@ -62,7 +48,6 @@ class RunrunTasks {
   }
 
   updateTasks () {
-    const request = this.getHttpClient()
     this.getUser()
       .then(user => {
         return request.get('https://secure.runrun.it/api/v1.0/tasks', {
@@ -82,7 +67,7 @@ class RunrunTasks {
         const trackedTask = localStorage.getItem('trackedTask')
         if (trackedTask) {
           const trackedTaskOnTaskList = this._tasks.find((task) => {
-            return task.id == trackedTask
+            return task.id === trackedTask
           })
           if (trackedTaskOnTaskList === undefined || (workingTask !== undefined && workingTask.id !== trackedTaskOnTaskList.id)) { localStorage.setItem('trackedTask', '') }
         }
@@ -119,7 +104,7 @@ class RunrunTasks {
           chrome.browserAction.setIcon({path: 'images/icon_128.png'})
         }
 
-        const reminderEnabled = !!((localStorage.getItem('reminderEnabled') && localStorage.getItem('reminderEnabled') == 'true'))
+        const reminderEnabled = !!((localStorage.getItem('reminderEnabled') && localStorage.getItem('reminderEnabled') === 'true'))
         const reminderTime = (localStorage.getItem('reminderTimeInMinutes')) ? parseInt(localStorage.getItem('reminderTimeInMinutes')) : 30
         if (reminderEnabled && this._reminder.isSameOrBefore(moment().subtract(reminderTime, 'm'))) {
           this._reminder = moment()
@@ -164,7 +149,6 @@ class RunrunTasks {
   }
 
   pauseTask (id) {
-    const request = this.getHttpClient()
     request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/pause`)
       .then(response => {
         this.updateTasks()
@@ -172,7 +156,6 @@ class RunrunTasks {
   }
 
   resumeTask (id) {
-    const request = this.getHttpClient()
     request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/play`)
       .then(response => {
         this.updateTasks()

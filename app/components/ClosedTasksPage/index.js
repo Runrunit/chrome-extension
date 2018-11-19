@@ -1,5 +1,5 @@
+/* global localStorage */
 import React from 'react'
-import { Link } from 'react-router'
 import moment from 'moment'
 import 'moment-duration-format'
 
