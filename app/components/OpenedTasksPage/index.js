@@ -1,5 +1,5 @@
+/* global localStorage, chrome, parent */
 import React from 'react'
-import { Link } from 'react-router'
 import moment from 'moment'
 import 'moment-duration-format'
 
@@ -89,7 +89,7 @@ class OpenedTasksPage extends React.Component {
 
   handleTaskTracking (id) {
     return () => {
-      if (localStorage.getItem('trackedTask') && localStorage.getItem('trackedTask') == id) { localStorage.setItem('trackedTask', '') } else { localStorage.setItem('trackedTask', id) }
+      if (localStorage.getItem('trackedTask') && localStorage.getItem('trackedTask') === id) { localStorage.setItem('trackedTask', '') } else { localStorage.setItem('trackedTask', id) }
       this.setState({
         trackedTask: localStorage.getItem('trackedTask')
       })
@@ -134,7 +134,7 @@ class OpenedTasksPage extends React.Component {
                     {(this.state.autoPauseResume && task.is_working_on) ? (
                       <span title='When this option is active the extension will manage the task for you, pausing/resuming if you lock/unlock the machine.' onClick={this.handleTaskTracking(task.id)}>
                         {
-                          (this.state.trackedTask == task.id)
+                          (this.state.trackedTask === task.id)
                             ? (<img src='/images/auto_pause_red.svg' />)
                             : (<img src='/images/auto_pause_gray.svg' />)
                         }
@@ -192,12 +192,6 @@ class OpenedTasksPage extends React.Component {
           <PopupHeader title='Tasks (Open)' />
           <PopupNav routeName='opened' />
         </div>
-        {/* <ul className={`list-group ${style.OpenedTasksPage}`}>
-          {tasks}
-        </ul> */}
-        {/* <div className={style.TasksDiv}>
-          {tasks}
-        </div> */}
         <div className={(localStorage.getItem('appkey')) ? `${style.TasksDiv}` : `${style.CoverDiv}`}>
           {tasks}
         </div>

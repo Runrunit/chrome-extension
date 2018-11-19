@@ -1,13 +1,9 @@
+/* global localStorage */
 import React from 'react'
 import style from './style.css'
-import { Link } from 'react-router'
 import PropTypes from 'prop-types'
 
 class PopupHeader extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     if (!localStorage.getItem('appkey')) {
       return (
