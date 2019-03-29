@@ -9,6 +9,7 @@ import LoadingIcon from '../LoadingIcon'
 import PopupHeader from '../PopupHeader'
 import PopupNav from '../PopupNav'
 import TaskDetail from '../TaskDetail'
+import { baseUrl } from '../../cfg'
 
 class OpenedTasksPage extends React.Component {
   constructor (props) {
@@ -48,7 +49,7 @@ class OpenedTasksPage extends React.Component {
 
   handlePlay (id) {
     return () => {
-      request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/play`)
+      request.post(`${baseUrl}/api/v1.0/tasks/${id}/play`)
         .then(response => {
           this.handleGetList()
         })
@@ -58,7 +59,7 @@ class OpenedTasksPage extends React.Component {
   handlePause (id) {
     return () => {
       localStorage.setItem('trackedTask', '')
-      request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/pause`)
+      request.post(`${baseUrl}/api/v1.0/tasks/${id}/pause`)
         .then(response => {
           this.handleGetList()
         })
@@ -67,7 +68,7 @@ class OpenedTasksPage extends React.Component {
 
   handleClose (id) {
     return () => {
-      request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/close`)
+      request.post(`${baseUrl}/api/v1.0/tasks/${id}/close`)
         .then(response => {
           this.handleGetList()
         })
@@ -155,7 +156,7 @@ class OpenedTasksPage extends React.Component {
                           <span className={style.RunrunItem__progressTime}>
                             ONGOING
                           </span>
-                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target='_blank' title='Check the task at the website' className={style.RunrunItem__progressLink}><span data-glyph='external-link' className='oi' /></a>
+                          <a href={`${baseUrl}/tasks/${task.id}`} target='_blank' title='Check the task at the website' className={style.RunrunItem__progressLink}><span data-glyph='external-link' className='oi' /></a>
                           <span className={style.RunrunItem__progressBar} />
                         </div>
                       ) : (
@@ -167,7 +168,7 @@ class OpenedTasksPage extends React.Component {
                               (task.current_estimate_seconds) ? '/ ' + timer(task.current_estimate_seconds) : ''
                             }
                           </span>
-                          <a href={`https://secure.runrun.it/tasks/${task.id}`} target='_blank' title='Check the task at the website' className={style.RunrunItem__progressLink}><span data-glyph='external-link' className='oi' /></a>
+                          <a href={`${baseUrl}/tasks/${task.id}`} target='_blank' title='Check the task at the website' className={style.RunrunItem__progressLink}><span data-glyph='external-link' className='oi' /></a>
                           <span className={style.RunrunItem__progressBar} />
                           <span className={style.RunrunItem__progressFilledBar} style={{ 'width': this.returnTaskProgress(task) + 'px', 'backgroundColor': (this.returnTaskProgress(task) >= 180) ? '#F77122' : '#38B927' }} />
                         </div>
