@@ -16,7 +16,7 @@
     "notifications",
     "alarms",
     "storage",
-    "https://secure.runrun.it/"
+    "https://runrun.it/"
   ],
   "background" : {
     "scripts": ["background.bundle.js"],

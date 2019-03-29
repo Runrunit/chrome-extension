@@ -1,5 +1,6 @@
 import axios from 'axios'
 import moment from 'moment'
+import { baseUrl } from '../cfg'
 
 JSON.isAJSONString = (object) => {
   try {
@@ -49,7 +50,7 @@ class RunrunTasks {
         resolve(user)
       } catch (error) {
         const request = this.getHttpClient()
-        request.get(`https://secure.runrun.it/api/v1.0/users/me`)
+        request.get(`${baseUrl}/api/v1.0/users/me`)
           .then(response => {
             localStorage.setItem('user', JSON.stringify(response.data))
             resolve(response.data)
@@ -65,7 +66,7 @@ class RunrunTasks {
     const request = this.getHttpClient()
     this.getUser()
       .then(user => {
-        return request.get('https://secure.runrun.it/api/v1.0/tasks', {
+        return request.get(`${baseUrl}/api/v1.0/tasks`, {
           params: {
             responsible_id: user.id || '',
             is_closed: false
@@ -165,7 +166,7 @@ class RunrunTasks {
 
   pauseTask (id) {
     const request = this.getHttpClient()
-    request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/pause`)
+    request.post(`${baseUrl}/api/v1.0/tasks/${id}/pause`)
       .then(response => {
         this.updateTasks()
       })
@@ -173,7 +174,7 @@ class RunrunTasks {
 
   resumeTask (id) {
     const request = this.getHttpClient()
-    request.post(`https://secure.runrun.it/api/v1.0/tasks/${id}/play`)
+    request.post(`${baseUrl}/api/v1.0/tasks/${id}/play`)
       .then(response => {
         this.updateTasks()
       })

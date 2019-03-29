@@ -2,6 +2,9 @@ import React from 'react'
 import style from './style.css'
 import { Link } from 'react-router'
 import PropTypes from 'prop-types'
+import { baseUrl } from '../../cfg'
+
+const url = `${baseUrl}/en-US/tasks`
 
 class PopupHeader extends React.Component {
   constructor (props) {
@@ -17,7 +20,7 @@ class PopupHeader extends React.Component {
       return (
         <header className={style.RunrunHeader}>
           <div className={style.RunrunHeader__left}>
-            <a href='https://secure.runrun.it/en-US/tasks' target='_blank'>
+            <a href={url} target='_blank'>
               <img src='images/rr.svg' className={style.RunrunIcon} />
             </a>
             <span className={style.RunrunHeader__left_title}>{this.props.title}</span>
