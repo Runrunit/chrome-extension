@@ -36,9 +36,11 @@ class ClosedTasksPage extends React.Component {
       const user = (localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : {}
       request.get(`${baseUrl}/api/v1.0/tasks`, {
         params: {
-          responsible_id: user.id,
+          sort: 'close_date',
+          sort_dir: 'desc',
+          limit: 10,
           is_closed: true,
-          limit: 10
+          task_list_user_id: user.id
         }
       })
         .then(response => {
