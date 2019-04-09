@@ -68,7 +68,7 @@ class OpenedTasksPage extends React.Component {
 
   handleClose (id) {
     return () => {
-      request.post(`${baseUrl}/api/v1.0/tasks/${id}/close`)
+      request.post(`${baseUrl}/api/v1.0/tasks/${id}/deliver`)
         .then(response => {
           this.handleGetList()
         })

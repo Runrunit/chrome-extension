@@ -68,8 +68,11 @@ class RunrunTasks {
       .then(user => {
         return request.get(`${baseUrl}/api/v1.0/tasks`, {
           params: {
-            responsible_id: user.id || '',
-            is_closed: false
+            sort: 'priority',
+            sort_dir: 'asc',
+            limit: 10,
+            is_closed: false,
+            task_list_user_id: user.id || ''
           }
         })
       })
@@ -85,7 +88,9 @@ class RunrunTasks {
           const trackedTaskOnTaskList = this._tasks.find((task) => {
             return task.id == trackedTask
           })
-          if (trackedTaskOnTaskList === undefined || (workingTask !== undefined && workingTask.id !== trackedTaskOnTaskList.id)) { localStorage.setItem('trackedTask', '') }
+          if (trackedTaskOnTaskList === undefined || (workingTask !== undefined && workingTask.id !== trackedTaskOnTaskList.id)) {
+            localStorage.setItem('trackedTask', '')
+          }
         }
 
         if (this._is_working_on !== false && workingTask === undefined) {
