@@ -4,7 +4,7 @@
   "short_name": "Runrun.it",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "browser_action": {
     "default_icon": "images/icon_16_active.png",
     "default_title": "Runrun.it",
@@ -12,11 +12,8 @@
   },
   "permissions": [
     "idle",
-    "tabs",
-    "notifications",
     "alarms",
-    "storage",
-    "https://runrun.it/"
+    "notifications"
   ],
   "background" : {
     "scripts": ["background.bundle.js"],
